@@ -25,39 +25,45 @@ def select_characteristics() -> dict:
     """ 
     Creates a list of characteristics combined from user-generated input and randomized choices.
     
-    NOTE - Not sure if should be done just inside the select_characteristics function or if it should have a secondary function for that purpose   
     TODO - In future this should check the args with the above filter input function, for now it will just randomize directly and that's it 
     
     select_charcteristics() takes any preselections from the user, then combines them with randomized stats for the others, and then returns the set of characteristics required to make a character. Does not take in the name from the user as this is not applied at this stage.
     
     Returns:
-        dict: Race, Class, Background
+        dict: 'names':{'first_name', 'last_name'}, 'race':_, 'class':_, 'background':_
     """
-    ...
+    
+    core = randomize_characteristics()
+    name = select_name(core["race"])
+    
+    characteristics = core
+    characteristics['name'] = name
+
     return characteristics
 
 
-def randomize_characteristics() -> dict:
+def randomize_characteristics() -> dict:    
     """
     Selects random characteristics and provides them for later use.
     
     Loads in individual json files that contain the races, classes, and backgrounds available in the ruleset.
     
     Returns:
-        dict: Race, Class, Background
+        dict: 'race':_, 'class':_, 'background':_
     """
     ...
     return characteristics
 
 
 def select_name(race: str) -> dict:
-    """_summary_
+    """
+    Selects names based on the race of the character from a preprepared list stored as a .json file.
 
     Args:
         race (str): Race of the character
 
     Returns:
-        dict: first_name, last_name
+        dict: 'first_name':_, 'last_name':_
     """
     ...
     return name
@@ -87,7 +93,7 @@ def roll_stats() -> list:
     ...
     return rolls 
 
-
+'''DOCUMENTED OUT WHILE WAITING FOR CHARACTER IMPLEMENTATION
 def print_character(character: Character) -> str:
     """
     Provides an aesthetically pleasing formated character description to be printed out.
@@ -103,7 +109,7 @@ def print_character(character: Character) -> str:
     
     ...
     return print_ready_character
-
+'''
 
 
 if __name__ == '__main__':

@@ -1,3 +1,6 @@
-#Git Ignore File
+# Git Ignore File
 
 *CS50*
+
+# Local Test Cache Files
+dangerousstrangers/__pycache__/*
