@@ -1,3 +1,5 @@
+import random
+
 """
 Takes in the user info, randomizes the other components, and then sends it to the CharacterBuilder class. Once finished, this recieves that back and then prints it out. 
 This somewhat makes this file complex as we're not taking the randomization or printing/exporting logic out.I would like to do in order to be able to have some type of adaptor/dependency injection/whatever to be able to substitute different ways of export (pdf, print, view in web page, ...) but for now is a requirement of the CS50 approach to submitting a final project.
@@ -16,7 +18,7 @@ Functions required here;
  
 
 def main():
-    ... 
+    roll_stats() 
 
    
 # TODO - Define function to take in and filter through user input
@@ -74,7 +76,7 @@ def set_stats() -> list:
     set_stats() generates the stats for the character. To begin with this will always just call roll_stats, but in the future it could also call point buy or standard array if required.
     
     Returns:
-        list: list of 6 ints
+        list: 6 ints
     """
     statistics = roll_stats()
     return statistics
@@ -87,11 +89,21 @@ def roll_stats() -> list:
     In 5e, each character stat can be made up of rolled dice. The approach is to roll 4 d6, drop the lowest number, and add them together. This is done 6 times as there are 6 core stats.
     
     Returns:
-        list: list of 6 ints
+        list: 6 ints
     """
-    rolls = []
-    ...
-    return rolls 
+    stats = []
+    
+    for _ in range(6):
+        four_d6 = []
+        for _ in range(4):
+            four_d6.append(random.randint(1,6))
+        lowest_roll = min(four_d6)
+        four_d6.remove(lowest_roll)
+        score = sum(four_d6)
+        stats.append(score)
+        
+    return stats 
+
 
 '''DOCUMENTED OUT WHILE WAITING FOR CHARACTER IMPLEMENTATION
 def print_character(character: Character) -> str:
