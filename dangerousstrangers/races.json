@@ -1,0 +1,42 @@
+{
+    "human": {
+        "ability_score_modifiers": {
+            "STR": 1,
+            "DEX": 1,
+            "CON": 1,
+            "INT": 1,
+            "WIS": 1,
+            "CHA": 1
+        },
+        "age_range": [0, 100],
+        "size": "Medium",
+        "speed": 30,
+        "languages": ["Common", "Misc Secondary"],
+        "proficiencies": [],
+        "features": {
+            "generalist": "You're a human. There's not much more to say. Okay at everything, but excellent at nothing."
+        }
+    },
+
+    "elf": {
+        "ability_score_modifiers": {
+            "STR": 0,
+            "DEX": 2,
+            "CON": 0,
+            "INT": 0,
+            "WIS": 0,
+            "CHA": 0
+        },
+        "age_range": [0, 750],
+        "size": "Medium",
+        "speed": 30,
+        "languages": ["Common", "Elvish"],
+        "proficiencies": [],
+        "features": {
+            "darkvision": "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern colour in darkness, only shades of grey.",
+            "keen_senses": "You have proficiency in the Perception skill.",
+            "fey_ancestry": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
+            "trance": "Elves don't need to sleep. Instead, they meditate deeply remaining semiconcious for 4 hours day. After resting this way, you gain the same benefit that a human does after resting for 8 hours."
+        }
+    }
+}
