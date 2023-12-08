@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "patternProperties": {
+        "^[a-zA-Z]+$": {
+            "type": "object",
+            "properties": {
+                "ability_score_modifiers": {
+                    "type": "object",
+                    "properties": {
+                        "STR": { "type": "integer" },
+                        "DEX": { "type": "integer" },
+                        "CON": { "type": "integer" },
+                        "INT": { "type": "integer" },
+                        "WIS": { "type": "integer" },
+                        "CHA": { "type": "integer" }
+                    },
+                    "required": ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+                },
+                "age_range": {
+                    "type": "array",
+                    "items": { "type": "integer" },
+                    "minItems": 2,
+                    "maxItems": 2
+                },
+                "size": { "type": "string" },
+                "speed": { "type": "integer" },
+                "languages": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "minItems": 1
+                },
+                "proficiencies": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "features": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                }
+            },
+            "required": [
+                "ability_score_modifiers",
+                "age_range",
+                "size",
+                "speed",
+                "languages",
+                "proficiencies",
+                "features"
+            ]
+        }
+    }
+}
