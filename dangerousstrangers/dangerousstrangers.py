@@ -4,52 +4,54 @@ import random
 Takes in the user info, randomizes the other components, and then sends it to the CharacterBuilder class. Once finished, this recieves that back and then prints it out. 
 This somewhat makes this file complex as we're not taking the randomization or printing/exporting logic out.I would like to do in order to be able to have some type of adaptor/dependency injection/whatever to be able to substitute different ways of export (pdf, print, view in web page, ...) but for now is a requirement of the CS50 approach to submitting a final project.
 """
- 
- 
+
+
 """
 TODO - All of the below
 Functions required here;
     **HOLD - Not the simplest, so to begin with will not implement this.** Take input from user - Somewhat Outlined
     Randomize any aspectsuser hasn't provided via args - Outlined
-    Roll Stats - Outlined
+    DONE Roll Stats - Outlined
     Hand all off to CharacterBuilder class
+        CharacterBuilder class will require Race class, Class class, Background class - to behave as a way of bundling the object itself for use in Python (Maybe?)
     Print the character - Outlined
-""" 
- 
+"""
+
 
 def main():
-    roll_stats() 
+    roll_stats()
 
-   
+
 # TODO - Define function to take in and filter through user input
 
-def select_characteristics() -> dict: 
-    """ 
+
+def select_characteristics() -> dict:
+    """
     Creates a list of characteristics combined from user-generated input and randomized choices.
-    
-    TODO - In future this should check the args with the above filter input function, for now it will just randomize directly and that's it 
-    
+
+    TODO - In future this should check the args with the above filter input function, for now it will just randomize directly and that's it
+
     select_charcteristics() takes any preselections from the user, then combines them with randomized stats for the others, and then returns the set of characteristics required to make a character. Does not take in the name from the user as this is not applied at this stage.
-    
+
     Returns:
         dict: 'names':{'first_name', 'last_name'}, 'race':_, 'class':_, 'background':_
     """
-    
+
     core = randomize_characteristics()
     name = select_name(core["race"])
-    
+
     characteristics = core
-    characteristics['name'] = name
+    characteristics["name"] = name
 
     return characteristics
 
 
-def randomize_characteristics() -> dict:    
+def randomize_characteristics() -> dict:
     """
     Selects random characteristics and provides them for later use.
-    
+
     Loads in individual json files that contain the races, classes, and backgrounds available in the ruleset.
-    
+
     Returns:
         dict: 'race':_, 'class':_, 'background':_
     """
@@ -74,7 +76,7 @@ def select_name(race: str) -> dict:
 def set_stats() -> list:
     """
     set_stats() generates the stats for the character. To begin with this will always just call roll_stats, but in the future it could also call point buy or standard array if required.
-    
+
     Returns:
         list: 6 ints
     """
@@ -85,24 +87,24 @@ def set_stats() -> list:
 def roll_stats() -> list:
     """
     Rolls dice to create randomized stats, and then returns a list of 6 stats.
-    
+
     In 5e, each character stat can be made up of rolled dice. The approach is to roll 4 d6, drop the lowest number, and add them together. This is done 6 times as there are 6 core stats.
-    
+
     Returns:
         list: 6 ints
     """
     stats = []
-    
+
     for _ in range(6):
         four_d6 = []
         for _ in range(4):
-            four_d6.append(random.randint(1,6))
+            four_d6.append(random.randint(1, 6))
         lowest_roll = min(four_d6)
         four_d6.remove(lowest_roll)
         score = sum(four_d6)
         stats.append(score)
-        
-    return stats 
+
+    return stats
 
 
 '''DOCUMENTED OUT WHILE WAITING FOR CHARACTER IMPLEMENTATION
@@ -124,5 +126,5 @@ def print_character(character: Character) -> str:
 '''
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
