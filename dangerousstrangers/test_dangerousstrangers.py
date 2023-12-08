@@ -1,7 +1,7 @@
 import pytest
 from dangerousstrangers import (
-    set_stats,
-    roll_stats,
+    set_scores,
+    roll_scores,
     select_characteristics,
     randomize_characteristics,
     select_name,
@@ -100,62 +100,62 @@ def test_select_name_returns_last_name():
     assert "last_name" in name, "select_name output should contain last_name"
 
 
-# Test Stats
+# Test scores
 
 
-def test_set_stats_returns_stats_list():
-    stats_list = set_stats()
-    assert isinstance(stats_list, list), "set_stats should return a list"
-    assert len(stats_list) == 6, "set_stats return list should be 6 items long"
+def test_set_scores_returns_scores_list():
+    scores_list = set_scores()
+    assert isinstance(scores_list, list), "set_scores should return a list"
+    assert len(scores_list) == 6, "set_scores return list should be 6 items long"
 
 
-def test_roll_stats_returns_stats_list():
-    stats_list = roll_stats()
-    assert isinstance(stats_list, list), "roll_stats should return a list"
-    assert len(stats_list) == 6, "roll_stats return list should be 6 items long"
+def test_roll_scores_returns_scores_list():
+    scores_list = roll_scores()
+    assert isinstance(scores_list, list), "roll_scores should return a list"
+    assert len(scores_list) == 6, "roll_scores return list should be 6 items long"
 
 
-def test_roll_stats_returns_different_stats():
+def test_roll_scores_returns_different_scores():
     """
-    Runs through the roll_stats function to confirm uniqueness.
+    Runs through the roll_scores function to confirm uniqueness.
 
-    Runs through the roll_stats function 10 times so that there are 10 different sets of stats, and then compares them to make sure they're not all identical. As long as there are two lists that aren't identical we can be confident that they are random enough, and the statstical chance of getting 10 x the exact same random numbers is low enough that I am comfortable with it.
+    Runs through the roll_scores function 10 times so that there are 10 different sets of scores, and then compares them to make sure they're not all identical. As long as there are two lists that aren't identical we can be confident that they are random enough, and the scorestical chance of getting 10 x the exact same random numbers is low enough that I am comfortable with it.
     """
 
     list_of_lists = []
     for _ in range(10):
-        new_stats = roll_stats()
-        list_of_lists.append(new_stats)
+        new_scores = roll_scores()
+        list_of_lists.append(new_scores)
 
     unique_lists = set()
-    for stats in list_of_lists:
-        list_tuple = tuple(stats)
+    for scores in list_of_lists:
+        list_tuple = tuple(scores)
         unique_lists.add(list_tuple)
 
     assert (
         len(unique_lists) > 7
-    ), "Multiple returns from roll_stats should not be identical"
+    ), "Multiple returns from roll_scores should not be identical"
     if len(unique_lists) > 7:
         assert (
             len(unique_lists) == len(list_of_lists)
-        ), "Multiple returns from roll_stats should not be identical - Statistical improbability may have occured, run tests again to confirm"
+        ), "Multiple returns from roll_scores should not be identical - Statistical improbability may have occured, run tests again to confirm"
 
 
-def test_roll_stats_returns_realistic_numbers():
+def test_roll_scores_returns_realistic_numbers():
     """
-    Creates 10 sets of Stat lists, and then checks that none of the indivdual stats are over 18.
+    Creates 10 sets of score lists, and then checks that none of the indivdual scores are over 18.
     """
 
-    list_of_stats = []
+    list_of_scores = []
     for _ in range(10):
-        new_stats = roll_stats()
-        for stat in new_stats:
-            list_of_stats.append(stat)
+        new_scores = roll_scores()
+        for score in new_scores:
+            list_of_scores.append(score)
 
-    for stat in list_of_stats:
+    for score in list_of_scores:
         assert (
-            stat <= 18
-        ), f"Stats should not be higher than 18 from rolling, stat was {stat}"
+            score <= 18
+        ), f"scores should not be higher than 18 from rolling, score was {score}"
 
 # fmt: on
 
@@ -169,7 +169,7 @@ def test_print_character_provideds_string():
     print_ready_character = print_character()
     assert isinstance(print_ready_character,str), "print_character should return a string"
     
-def test_print_ready_character_contains_stats():
+def test_print_ready_character_contains_scores():
     ...
     
 def test_print_character_contains_name():

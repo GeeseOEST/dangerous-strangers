@@ -17,7 +17,7 @@ To try to be explicit with my intentions;
 
     And this should inform;
         Name
-        Stats (INT,...)
+        Scores (INT,...) (Shortned from Ability Scores for simplicity)
         Proficiencies
         Saving Throws
         Equipment

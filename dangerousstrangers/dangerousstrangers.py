@@ -11,7 +11,7 @@ TODO - All of the below
 Functions required here;
     **HOLD - Not the simplest, so to begin with will not implement this.** Take input from user - Somewhat Outlined
     Randomize any aspectsuser hasn't provided via args - Outlined
-    DONE Roll Stats - Outlined
+    DONE Roll ability scores - Outlined
     Hand all off to CharacterBuilder class
         CharacterBuilder class will require Race class, Class class, Background class - to behave as a way of bundling the object itself for use in Python (Maybe?)
     Print the character - Outlined
@@ -19,7 +19,7 @@ Functions required here;
 
 
 def main():
-    roll_stats()
+    roll_scores()
 
 
 # TODO - Define function to take in and filter through user input
@@ -31,7 +31,7 @@ def select_characteristics() -> dict:
 
     TODO - In future this should check the args with the above filter input function, for now it will just randomize directly and that's it
 
-    select_charcteristics() takes any preselections from the user, then combines them with randomized stats for the others, and then returns the set of characteristics required to make a character. Does not take in the name from the user as this is not applied at this stage.
+    select_charcteristics() takes any preselections from the user, then combines them with randomized scores for the others, and then returns the set of characteristics required to make a character. Does not take in the name from the user as this is not applied at this stage.
 
     Returns:
         dict: 'names':{'first_name', 'last_name'}, 'race':_, 'class':_, 'background':_
@@ -73,27 +73,27 @@ def select_name(race: str) -> dict:
     return name
 
 
-def set_stats() -> list:
+def set_scores() -> list:
     """
-    set_stats() generates the stats for the character. To begin with this will always just call roll_stats, but in the future it could also call point buy or standard array if required.
+    set_scores() generates the scores for the character. To begin with this will always just call roll_scores, but in the future it could also call point buy or standard array if required.
 
     Returns:
         list: 6 ints
     """
-    statistics = roll_stats()
-    return statistics
+    scores = roll_scores()
+    return scores
 
 
-def roll_stats() -> list:
+def roll_scores() -> list:
     """
-    Rolls dice to create randomized stats, and then returns a list of 6 stats.
+    Rolls dice to create randomized scores, and then returns a list of 6 scores.
 
-    In 5e, each character stat can be made up of rolled dice. The approach is to roll 4 d6, drop the lowest number, and add them together. This is done 6 times as there are 6 core stats.
+    In 5e, each character's ability scores can be determined by rolled dice. The approach is to roll 4 d6, drop the lowest number, and add them together. This is done 6 times as there are 6 core ability scores.
 
     Returns:
         list: 6 ints
     """
-    stats = []
+    scores = []
 
     for _ in range(6):
         four_d6 = []
@@ -102,9 +102,9 @@ def roll_stats() -> list:
         lowest_roll = min(four_d6)
         four_d6.remove(lowest_roll)
         score = sum(four_d6)
-        stats.append(score)
+        scores.append(score)
 
-    return stats
+    return scores
 
 
 '''DOCUMENTED OUT WHILE WAITING FOR CHARACTER IMPLEMENTATION
