@@ -31,13 +31,20 @@
                     "minItems": 1
                 },
                 "proficiencies": {
-                    "type": "array",
-                    "items": { "type": "string" }
+                    "type": "object",
+                    "properties": {
+                        "armor": { "type": "array", "items": { "type": "string" } },
+                        "weapon": { "type": "array", "items": { "type": "string" } },
+                        "tool": { "type": "array", "items": { "type": "string" } },
+                        "save": { "type": "array", "items": { "type": "string" } },
+                        "skill": { "type": "array", "items": { "type": "string" } }
+                    }
                 },
-                "features": {
+
+                "attributes": {
                     "type": "object",
                     "additionalProperties": {
-                        "type": "object"
+                        "type": "string"
                     }
                 }
             },
@@ -48,7 +55,7 @@
                 "speed",
                 "languages",
                 "proficiencies",
-                "features"
+                "attributes"
             ]
         }
     }
