@@ -1,6 +1,10 @@
 import pytest
 from dangerousstrangers import set_stats, roll_stats, select_characteristics, randomize_characteristics, select_name
 
+# To begin with these are just simple tests to make sure that different components are returning the appropriate things
+# Longer term I think I would like to split things out and either have one file per function with all the tests, or one file for simple tests and another for complex
+# Depends on what the best practice is, although instinct would tell me that it should be one file per thing
+
 # Test Characteristics
 
 def test_select_characteristics_returns_correct_dict():
@@ -93,8 +97,22 @@ def test_roll_stats_returns_different_stats():
     if len(unique_lists) > 7:
         assert len(unique_lists) == len(list_of_lists), "Multiple returns from roll_stats should not be identical - Statistical improbability may have occured, run tests again to confirm"
     
+def test_roll_stats_returns_realistic_numbers():
+    """ 
+    Creates 10 sets of Stat lists, and then checks that none of the indivdual stats are over 18.
+    """
+    
+    list_of_stats = []
+    for _ in range(10):
+        new_stats = roll_stats()
+        for stat in new_stats:
+            list_of_stats.append(stat)
+            
+    for stat in list_of_stats:
+        assert stat <= 18
 
-# Test Print Ready Character Creation
+
+# TODO Test Print Ready Character Creation
 
 """
 ALL COMMENTED OUT UNTIL IMPLEMENTATION OF CHARACTER OR MOCKING IS FIGURED OUT TODO
