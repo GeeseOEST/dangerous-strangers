@@ -60,10 +60,7 @@
       "standard": [],
       "selectable": 0
     },
-    "equipment": [
-      "A crowbar",
-      "A set of dark common clothes including hood"
-    ],
+    "equipment": ["A crowbar", "A set of dark common clothes including hood"],
     "money": {
       "CP": 0,
       "SP": 0,

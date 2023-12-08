@@ -1,110 +1,105 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "patternProperties": {
-        "^[a-zA-Z]+$": {
-            "type": "object",
-            "properties": {
-                "hitdice": { "type": "integer" },
-                "proficiencies": {
-                    "type": "object",
-                    "properties": {
-                        "standard": {
-                            "type": "object",
-                            "properties": {
-                                "armor": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                },
-                                "weapon": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                },
-                                "tool": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                },
-                                "save": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                },
-                                "skill": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                }
-                            }
-                        },
-                        "selectable": {
-                            "type": "object",
-                            "properties": {
-                                "armor": {
-                                    "type": "array",
-                                    "items": [
-                                        { "type": "integer" },
-                                        { "type": "array", "items": { "type": "string" } }
-                                    ]
-                                },
-                                "weapon": {
-                                    "type": "array",
-                                    "items": [
-                                        { "type": "integer" },
-                                        { "type": "array", "items": { "type": "string" } }
-                                    ]
-                                },
-                                "tool": {
-                                    "type": "array",
-                                    "items": [
-                                        { "type": "integer" },
-                                        { "type": "array", "items": { "type": "string" } }
-                                    ]
-                                },
-                                "save": {
-                                    "type": "array",
-                                    "items": [
-                                        { "type": "integer" },
-                                        { "type": "array", "items": { "type": "string" } }
-                                    ]
-                                },
-                                "skill": {
-                                    "type": "array",
-                                    "items": [
-                                        { "type": "integer" },
-                                        { "type": "array", "items": { "type": "string" } }
-                                    ]
-                                }
-                            }
-                        }
-                    }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "patternProperties": {
+    "^[a-zA-Z]+$": {
+      "type": "object",
+      "properties": {
+        "hitdice": { "type": "integer" },
+        "proficiencies": {
+          "type": "object",
+          "properties": {
+            "standard": {
+              "type": "object",
+              "properties": {
+                "armor": {
+                  "type": "array",
+                  "items": { "type": "string" }
                 },
-                "starting_equipment": {
-                    "type": "array",
-                    "items": {
-                        "oneOf": [
-                            {
-                                "type": "array",
-                                "items": {
-                                    "type": "array",
-                                    "items": [{ "type": "string" }, { "type": "integer" }]
-                                }
-                            },
-                            {
-                                "type": "array",
-                                "items": [{ "type": "string" }, { "type": "integer" }]
-                            }
-                        ]
-                    }
+                "weapon": {
+                  "type": "array",
+                  "items": { "type": "string" }
                 },
-                "feats": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[0-9]+$": {
-                            "type": "object",
-                            "additionalProperties": { "type": "string" }
-                        }
-                    }
+                "tool": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "save": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "skill": {
+                  "type": "array",
+                  "items": { "type": "string" }
                 }
+              }
             },
-            "required": ["hitdice", "proficiencies", "starting_equipment", "feats"]
+            "selectable": {
+              "type": "object",
+              "properties": {
+                "armor": {
+                  "type": "array",
+                  "items": [
+                    { "type": "integer" },
+                    { "type": "array", "items": { "type": "string" } }
+                  ]
+                },
+                "weapon": {
+                  "type": "array",
+                  "items": [
+                    { "type": "integer" },
+                    { "type": "array", "items": { "type": "string" } }
+                  ]
+                },
+                "tool": {
+                  "type": "array",
+                  "items": [
+                    { "type": "integer" },
+                    { "type": "array", "items": { "type": "string" } }
+                  ]
+                },
+                "save": {
+                  "type": "array",
+                  "items": [
+                    { "type": "integer" },
+                    { "type": "array", "items": { "type": "string" } }
+                  ]
+                },
+                "skill": {
+                  "type": "array",
+                  "items": [
+                    { "type": "integer" },
+                    { "type": "array", "items": { "type": "string" } }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "equipment": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": [{ "type": "string" }, { "type": "integer" }]
+                }
+              },
+              {
+                "type": "array",
+                "items": [{ "type": "string" }, { "type": "integer" }]
+              }
+            ]
+          }
+        },
+        "feats": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
         }
+      },
+      "required": ["hitdice", "proficiencies", "equipment", "feats"]
     }
+  }
 }
