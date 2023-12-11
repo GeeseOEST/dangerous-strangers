@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "patternProperties": {
+    "^[a-zA-Z]+$": {
+      "type": "object",
+      "properties": {
+        "ability_score_modifiers": {
+          "type": "object",
+          "properties": {
+            "STR": { "type": "integer" },
+            "DEX": { "type": "integer" },
+            "CON": { "type": "integer" },
+            "INT": { "type": "integer" },
+            "WIS": { "type": "integer" },
+            "CHA": { "type": "integer" }
+          },
+          "required": ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+        },
+        "age_range": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "size": { "type": "string" },
+        "speed": { "type": "integer" },
+        "languages": {
+          "type": "object",
+          "properties": {
+            "standard": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "selectable": {
+              "type": "integer"
+            }
+          }
+        },
+        "proficiencies": {
+          "type": "object",
+          "properties": {
+            "armor": { "type": "array", "items": { "type": "string" } },
+            "weapon": { "type": "array", "items": { "type": "string" } },
+            "tool": { "type": "array", "items": { "type": "string" } },
+            "save": { "type": "array", "items": { "type": "string" } },
+            "skill": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+
+        "attributes": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "required": [
+        "ability_score_modifiers",
+        "age_range",
+        "size",
+        "speed",
+        "languages",
+        "proficiencies",
+        "attributes"
+      ]
+    }
+  }
+}
