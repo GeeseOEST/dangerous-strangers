@@ -29,12 +29,7 @@
 
   "elf": {
     "ability_score_modifiers": {
-      "STR": 0,
-      "DEX": 2,
-      "CON": 0,
-      "INT": 0,
-      "WIS": 0,
-      "CHA": 0
+      "DEX": 2
     },
     "age_range": [0, 750],
     "size": "Medium",

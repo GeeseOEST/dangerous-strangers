@@ -14,8 +14,7 @@
             "INT": { "type": "integer" },
             "WIS": { "type": "integer" },
             "CHA": { "type": "integer" }
-          },
-          "required": ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+          }
         },
         "age_range": {
           "type": "array",

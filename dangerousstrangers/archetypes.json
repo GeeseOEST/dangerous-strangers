@@ -61,7 +61,14 @@
         "tool": [1, ["Artisan's tools", "Musical instruments"]],
         "skill": [
           2,
-          ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]
+          [
+            "Acrobatics", 
+            "Athletics", 
+            "History", 
+            "Insight", 
+            "Religion", 
+            "Stealth"
+        ]
         ]
       }
     },
