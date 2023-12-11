@@ -2,18 +2,7 @@
   "acolyte": {
     "proficiencies": {
       "standard": {
-        "armor": [],
-        "weapon": [],
-        "tool": [],
-        "save": [],
         "skill": ["Insight", "Religion"]
-      },
-      "selectable": {
-        "armor": [],
-        "weapon": [],
-        "tool": [],
-        "save": [],
-        "skill": []
       }
     },
     "languages": {
@@ -42,18 +31,11 @@
   "criminal": {
     "proficiencies": {
       "standard": {
-        "armor": [],
-        "weapon": [],
         "tool": ["Thieves' Tools"],
-        "save": [],
         "skill": ["Deception", "Stealth"]
       },
       "selectable": {
-        "armor": [],
-        "weapon": [],
-        "tool": [1, ["Dice set", "Playing card set"]],
-        "save": [],
-        "skill": []
+        "tool": [1, ["Dice set", "Playing card set"]]
       }
     },
     "languages": {

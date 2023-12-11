@@ -15,13 +15,6 @@
       "standard": ["Common"],
       "selectable": 1
     },
-    "proficiencies": {
-      "armor": [],
-      "weapon": [],
-      "tool": [],
-      "save": [],
-      "skill": []
-    },
     "attributes": {
       "Generalist": "You're a human. There's not much more to say. Okay at everything, but excellent at nothing."
     }
@@ -39,10 +32,6 @@
       "selectable": 0
     },
     "proficiencies": {
-      "armor": [],
-      "weapon": [],
-      "tool": [],
-      "save": [],
       "skill": ["perception"]
     },
     "attributes": {
