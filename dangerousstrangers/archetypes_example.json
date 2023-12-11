@@ -1,0 +1,36 @@
+{
+    "ARCHETYPE NAME": {
+      "hitdice": 0,
+      "proficiencies": {
+        "standard": {
+          "armor": ["ARMOR PROFICIENCIES"],
+          "weapon": ["WEAPON PROFICIENCIES"],
+          "tool": ["TOOL PROFICIENCIES"],
+          "save": ["SAVE PROFICIENCIES"],
+          "skill": ["SKILL PROFICIENCIES"]
+        },
+        "selectable": {
+          "armor": [0, "PROFICIENCY NAME"],
+          "weapon": [0, "PROFICIENCY NAME"],
+          "tool": [0, "PROFICIENCY NAME"],
+          "save": [0, "PROFICIENCY NAME"],
+          "skill": [0, "PROFICIENCY NAME"]
+        }
+      },
+      "equipment": [
+        [
+          ["EQUIPMENT TYPE", 0],
+          ["ALTERNATIVE CHOICE", 0]
+        ],
+        ["FIXED EQUIPMENT", 0]
+      ],
+      "feats": {
+        "1": {
+          "FEAT TITLE": "FEAT DESCRIPTION"
+        },
+        "2": {
+            "FEAT TITLE": "FEAT DESCRIPTION"
+        }
+      }
+    }
+}  
