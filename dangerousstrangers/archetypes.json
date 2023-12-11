@@ -5,15 +5,9 @@
       "standard": {
         "armor": ["Light armor", "Medium armor", "Shields"],
         "weapon": ["Simple weapons", "Martial weapons"],
-        "tool": [],
-        "save": ["Strength", "Constitution"],
-        "skill": []
+        "save": ["Strength", "Constitution"]
       },
       "selectable": {
-        "armor": [],
-        "weapon": [],
-        "tool": [],
-        "save": [],
         "skill": [
           2,
           [

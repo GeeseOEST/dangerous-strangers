@@ -1,0 +1,29 @@
+{
+    "RACE NAME": {
+      "ability_score_modifiers": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 0,
+        "WIS": 0,
+        "CHA": 0
+      },
+      "age_range": [0, 1],
+      "size": "SIZE",
+      "speed": 30,
+      "languages": {
+        "standard": ["LANGUAGE NAME"],
+        "selectable": 0
+      },
+      "proficiencies": {
+        "armor": [],
+        "weapon": [],
+        "tool": [],
+        "save": [],
+        "skill": []
+      },
+      "attributes": {
+        "ATTRIBUTE TITLE": "ATTRIBUTE CONTENTS"
+      }
+    }
+}  

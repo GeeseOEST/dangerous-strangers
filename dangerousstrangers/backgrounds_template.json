@@ -1,0 +1,38 @@
+{
+    "acolyte": {
+      "proficiencies": {
+        "standard": {
+          "armor": [],
+          "weapon": [],
+          "tool": [],
+          "save": [],
+          "skill": []
+        },
+        "selectable": {
+          "armor": [0, "PROFICIENCY NAME"],
+          "weapon": [0, "PROFICIENCY NAME"],
+          "tool": [0, "PROFICIENCY NAME"],
+          "save": [0, "PROFICIENCY NAME"],
+          "skill": [0, "PROFICIENCY NAME"]
+        }
+      },
+      "languages": {
+        "standard": ["LANGUAGE"],
+        "selectable": 0
+      },
+      "equipment": [
+        "EQUIPMENT NAME"
+      ],
+      "money": {
+        "CP": 0,
+        "SP": 0,
+        "EP": 0,
+        "GP": 0,
+        "PP": 0
+      },
+      "feature": {
+        "FEATURE TITLE": "FEATURE DESCRIPTION"
+      }
+    }
+}
+  
