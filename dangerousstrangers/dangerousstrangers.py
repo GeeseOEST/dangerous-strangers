@@ -1,5 +1,5 @@
 import random
-import json
+import json_loader
 
 """
 Takes in the user info, randomizes the other components, and then sends it to the CharacterBuilder class. Once finished, this recieves that back and then prints it out. 
