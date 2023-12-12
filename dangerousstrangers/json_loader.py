@@ -10,7 +10,10 @@ def load_top_level_keys(component: str) -> list:
     Returns:
         list: List of all keys in the JSON file at the top level
     """
-    file_name = f"{component}s.json"
+    if component == "test":
+        file_name = "test.json"
+    else:
+        file_name = f"{component}s.json"
 
     try:
         with open(file_name, "r") as file:
@@ -36,5 +39,25 @@ def load_chosen_component(component_type: str, component: str) -> dict:
     Returns:
         dict: Full dictionary object of everything contained in the JSON description that can be used to create a class of that object
     """
-    ...
+    if component_type == "test":
+        file_name = "test.json"
+    else:
+        file_name = f"{component_type}s.json"
+        
+    try:
+        with open(file_name, "r") as file:
+            data = json.load(file)
+            
+        if component in data:
+            component_dict = data[component]
+        else: 
+            raise KeyError(f"Component {component} is not a key in {file_name}")
+            
+    except FileNotFoundError:
+        raise FileNotFoundError(
+            f"File {file_name} not found in same folder as json_loader"
+        )
+    except json.JSONDecodeError:
+        raise ValueError("Invalid JSON file")
     
+    return component_dict
