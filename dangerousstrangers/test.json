@@ -1,0 +1,17 @@
+{
+  "top_level_key1": {
+    "string1": "string1",
+    "list1": ["list1_item1", "list1_item2"],
+    "int1": 1
+  },
+  "top_level_key2": {
+    "string2": "string2",
+    "list2": ["list2_item1", "list2_item2"],
+    "int2": 2
+  },
+  "top_level_key3": {
+    "string3": "string3",
+    "list3": ["list3_item1", "list3_item2"],
+    "int3": 3
+  }
+}
