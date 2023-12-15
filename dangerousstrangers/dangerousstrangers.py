@@ -18,7 +18,7 @@ def select_characteristics() -> dict:
     select_charcteristics() takes any preselections from the user, then combines them with randomized scores for the others, and then returns the set of characteristics required to make a character. Does not take in the name from the user as this is not applied at this stage.
 
     Returns:
-        dict: 'names':{'first_name', 'last_name'}, 'race':_, 'archetype':_, 'background':_
+        dict: 'names':{'first', 'last'}, 'race':_, 'archetype':_, 'background':_
     """
 
     core = randomize_characteristics()
@@ -54,14 +54,25 @@ def select_name(race: str) -> dict:
     """
     Selects names based on the race of the character from a preprepared list stored as a .json file.
 
+    Contents of the names.json file are expected to be;
+        {race: {first:[_], last:[_]}}
+
     Args:
         race (str): Race of the character
 
     Returns:
-        dict: 'first_name':_, 'last_name':_
+        dict: 'first':_, 'last':_
     """
-    ...
-    return name
+
+    names = json_loader.load_chosen_component("name", race)
+    character_name = {"first": None, "last": None}
+
+    for position in character_name:
+        name_options = names[position]
+        choice = random.choice(name_options)
+        character_name[position] = choice
+
+    return character_name
 
 
 def set_scores() -> list:
