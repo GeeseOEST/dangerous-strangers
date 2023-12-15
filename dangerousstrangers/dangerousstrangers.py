@@ -11,7 +11,6 @@ def main():
     roll_scores()
 
 
-
 def select_characteristics() -> dict:
     """
     Creates a list of characteristics combined from user-generated input and randomized choices.
