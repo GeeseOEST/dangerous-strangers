@@ -15,7 +15,7 @@ from dangerousstrangers import (
 
 # fmt: off
 def test_select_characteristics_returns_correct_dict():
-    """Expected: {'name':{'first_name':_, 'last_name':_},'race':_, 'class':_, 'background':_}"""
+    """Expected: {'name':{'first_name':_, 'last_name':_},'race':_, 'archetype':_, 'background':_}"""
     characteristics = select_characteristics()
     assert (
         isinstance(characteristics, dict)
@@ -37,11 +37,11 @@ def test_select_characteristics_returns_race():
     ), "race key should exist in output from select_characteristics"
 
 
-def test_select_characteristics_returns_class():
+def test_select_characteristics_returns_archetype():
     characteristics = select_characteristics()
     assert (
-        "class" in characteristics
-    ), "class key should exist in output from select_characteristics"
+        "archetype" in characteristics
+    ), "archetype key should exist in output from select_characteristics"
 
 
 def test_select_characteristics_returns_background():
@@ -52,8 +52,9 @@ def test_select_characteristics_returns_background():
 
 
 def test_randomize_characteristics_returns_correct_dict():
-    """Expected: {'race':_, 'class':_, 'background':_}"""
+    """Expected: {'race':_, 'archetype':_, 'background':_}"""
     characteristics = randomize_characteristics()
+    print(characteristics)
     assert (
         isinstance(characteristics, dict)
     ), "randomize_characteristics should return a dict"
@@ -69,11 +70,11 @@ def test_randomize_characteristics_returns_race():
     ), "race should exist in output from randomize_characteristics"
 
 
-def test_randomize_characteristics_returns_class():
+def test_randomize_characteristics_returns_archetype():
     characteristics = randomize_characteristics()
     assert (
-        "class" in characteristics
-    ), "class should exist in output from randomize_characteristics"
+        "archetype" in characteristics
+    ), "archetype should exist in output from randomize_characteristics"
 
 
 def test_randomize_characteristics_returns_background():
@@ -85,18 +86,18 @@ def test_randomize_characteristics_returns_background():
 
 def test_select_name_returns_dict():
     """Expected: {'first_name':_, 'last_name':_}"""
-    name = select_name()
+    name = select_name("human")
     assert isinstance(name, dict), "Output from select_name should be a dict"
     assert len(name) == 2, "Output from select_name should have 2 key:value pairs"
 
 
 def test_select_name_returns_first_name():
-    name = select_name()
+    name = select_name("human")
     assert "first_name" in name, "select_name output should contain first_name"
 
 
 def test_select_name_returns_last_name():
-    name = select_name()
+    name = select_name("human")
     assert "last_name" in name, "select_name output should contain last_name"
 
 

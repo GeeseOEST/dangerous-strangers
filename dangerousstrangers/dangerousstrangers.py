@@ -2,27 +2,23 @@ import random
 import json_loader
 
 """
-Takes in the user info, randomizes the other components, and then sends it to the CharacterBuilder class. Once finished, this recieves that back and then prints it out. 
+Randomizes the components, rolls random scores, and then sends them all to the CharacterBuilder to create instances of the Archetype, Race, Background classes and combine them all into a Character class. Once finished, this recieves that back and then prints it out. 
 This somewhat makes this file complex as we're not taking the randomization or printing/exporting logic out.I would like to do in order to be able to have some type of adaptor/dependency injection/whatever to be able to substitute different ways of export (pdf, print, view in web page, ...) but for now is a requirement of the CS50 approach to submitting a final project.
 """
 
+
 def main():
     roll_scores()
-
-
-# TODO - Define function to take in and filter through user input
 
 
 def select_characteristics() -> dict:
     """
     Creates a list of characteristics combined from user-generated input and randomized choices.
 
-    TODO - In future this should check the args with the above filter input function, for now it will just randomize directly and that's it
-
     select_charcteristics() takes any preselections from the user, then combines them with randomized scores for the others, and then returns the set of characteristics required to make a character. Does not take in the name from the user as this is not applied at this stage.
 
     Returns:
-        dict: 'names':{'first_name', 'last_name'}, 'race':_, 'class':_, 'background':_
+        dict: 'names':{'first_name', 'last_name'}, 'race':_, 'archetype':_, 'background':_
     """
 
     core = randomize_characteristics()
@@ -38,12 +34,19 @@ def randomize_characteristics() -> dict:
     """
     Selects random characteristics and provides them for later use.
 
-    Loads in individual json files that contain the races, classes, and backgrounds available in the ruleset.
+    Loads in json files that correspond to the races, archetypes, and backgrounds available in the ruleset, extracts the top-level keys from those json files, and then makes a random choice from the available options. It then assigns that to the correct key in a dict, and once it has looped through all the options, returns that dict.
 
     Returns:
-        dict: 'race':_, 'class':_, 'background':_
+        dict: 'race':_, 'archetype':_, 'background':_
     """
-    ...
+
+    characteristics = {"race": None, "archetype": None, "background": None}
+
+    for key in characteristics:
+        top_level_keys = json_loader.load_top_level_keys(key)
+        choice = random.choice(top_level_keys)
+        characteristics[key] = choice
+
     return characteristics
 
 
