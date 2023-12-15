@@ -15,7 +15,7 @@ from dangerousstrangers import (
 
 # fmt: off
 def test_select_characteristics_returns_correct_dict():
-    """Expected: {'name':{'first_name':_, 'last_name':_},'race':_, 'archetype':_, 'background':_}"""
+    """Expected: {'name':{'name':_, 'name':_},'race':_, 'archetype':_, 'background':_}"""
     characteristics = select_characteristics()
     assert (
         isinstance(characteristics, dict)
@@ -26,8 +26,8 @@ def test_select_characteristics_returns_correct_dict():
     assert "name" in characteristics, "name should exist in dict"
     if "name" in characteristics:
         names = characteristics["name"]
-        assert "first_name" in names, "first_name should exist in 'names' inside dict"
-        assert "last_name" in names, "last_name should exist in 'names' inside dict"
+        assert "first" in names, "key of first should exist in 'names' inside dict"
+        assert "last" in names, "key of last should exist in 'names' inside dict"
 
 
 def test_select_characteristics_returns_race():
@@ -54,7 +54,6 @@ def test_select_characteristics_returns_background():
 def test_randomize_characteristics_returns_correct_dict():
     """Expected: {'race':_, 'archetype':_, 'background':_}"""
     characteristics = randomize_characteristics()
-    print(characteristics)
     assert (
         isinstance(characteristics, dict)
     ), "randomize_characteristics should return a dict"
@@ -85,7 +84,7 @@ def test_randomize_characteristics_returns_background():
 
 
 def test_select_name_returns_dict():
-    """Expected: {'first_name':_, 'last_name':_}"""
+    """Expected: {'first':_, 'last':_}"""
     name = select_name("human")
     assert isinstance(name, dict), "Output from select_name should be a dict"
     assert len(name) == 2, "Output from select_name should have 2 key:value pairs"
@@ -93,12 +92,12 @@ def test_select_name_returns_dict():
 
 def test_select_name_returns_first_name():
     name = select_name("human")
-    assert "first_name" in name, "select_name output should contain first_name"
+    assert "first" in name, "select_name output should contain first"
 
 
 def test_select_name_returns_last_name():
     name = select_name("human")
-    assert "last_name" in name, "select_name output should contain last_name"
+    assert "last" in name, "select_name output should contain last"
 
 
 # Test scores
