@@ -6,11 +6,10 @@ Randomizes the components, rolls random scores, and then sends them all to the C
 This somewhat makes this file complex as we're not taking the randomization or printing/exporting logic out.I would like to do in order to be able to have some type of adaptor/dependency injection/whatever to be able to substitute different ways of export (pdf, print, view in web page, ...) but for now is a requirement of the CS50 approach to submitting a final project.
 """
 
+
 def main():
     roll_scores()
 
-
-# TODO - Define function to take in and filter through user input
 
 
 def select_characteristics() -> dict:
@@ -41,18 +40,14 @@ def randomize_characteristics() -> dict:
     Returns:
         dict: 'race':_, 'archetype':_, 'background':_
     """
-    
-    characteristics = {
-        "race": None, 
-        "archetype": None, 
-        "background": None 
-        }
-    
+
+    characteristics = {"race": None, "archetype": None, "background": None}
+
     for key in characteristics:
         top_level_keys = json_loader.load_top_level_keys(key)
         choice = random.choice(top_level_keys)
         characteristics[key] = choice
-        
+
     return characteristics
 
 
