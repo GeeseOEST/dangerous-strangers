@@ -1,6 +1,7 @@
 {
     "ARCHETYPE NAME": {
       "hitdice": 0,
+      "core_stat": "CORE STAT",
       "proficiencies": {
         "standard": {
           "armor": ["ARMOR PROFICIENCIES"],

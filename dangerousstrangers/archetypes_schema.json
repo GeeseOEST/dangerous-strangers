@@ -6,6 +6,7 @@
       "type": "object",
       "properties": {
         "hitdice": { "type": "integer" },
+        "core_stat": {"type": "string"},
         "proficiencies": {
           "type": "object",
           "properties": {
