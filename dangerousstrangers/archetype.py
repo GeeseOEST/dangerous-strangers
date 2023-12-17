@@ -1,4 +1,5 @@
 import json_loader
+import random
 
 #Class definition for the Archetype class that will become a component of the Character class, created via the CharacterBuilder class
 
@@ -41,7 +42,18 @@ class Archetype:
 
 
 
-TODO: 
+# TODO - Work out logic for selecting randomly selectable proficiencies
+
+
+# TODO - Create logic for selecting equipment - SORT OF DONE BUT NEEDS CHECKING FOR SURE
+
+    for item in rules["equipment"]:
+        number_of_choices = len(item)
+        choice = random.randint(0, number_of_choices - 1)
+        self.equipment.append(item[choice]) 
+
+
+# TODO - Create logic for adding features appropriate to the level of the character
 
 
 
