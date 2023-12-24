@@ -64,3 +64,21 @@ def load_chosen_component(file_name: str, top_level_key: str) -> dict:
         raise ValueError("Invalid JSON file")
 
     return component_dict
+
+
+
+def load_test_file(component_type: str) -> dict:
+    
+    file_name = component_type + "s_mock.json"
+    try:
+        with open(file_name, "r") as file:
+            component_dict = json.load(file)
+
+    except FileNotFoundError:
+        raise FileNotFoundError(
+            f"File {file_name} not found in same folder as json_loader"
+        )
+    except json.JSONDecodeError:
+        raise ValueError("Invalid JSON file")
+
+    return component_dict
