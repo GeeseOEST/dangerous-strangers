@@ -1,6 +1,6 @@
 import random
 import json_loader
-import Archetype
+#from archetype import Archetype
 
 """
 Randomizes the components, rolls random scores, and then sends them all to the CharacterBuilder to create instances of the Archetype, Race, Background classes and combine them all into a Character class. Once finished, this recieves that back and then prints it out. 
@@ -12,7 +12,7 @@ def main():
     scores = roll_scores()
     characteristics = select_characteristics()
     
-    
+    #character_archetype = Archetype(characteristics["archetype"])
     
     print (scores)
     print (characteristics)
