@@ -1,0 +1,29 @@
+{
+    "test_race": {
+      "ability_score_modifiers": {
+        "STR": 0,
+        "DEX": 2,
+        "CON": 0,
+        "INT": 5,
+        "WIS": 0,
+        "CHA": -1
+      },
+      "age_range": [10, 200],
+      "size": "Medium",
+      "speed": 30,
+      "languages": {
+        "standard": ["Common", "Elvish"],
+        "selectable": 1
+      },
+      "proficiencies": {
+        "armor": [],
+        "weapon": ["Shortswords"],
+        "tool": [],
+        "save": [],
+        "skill": ["Athletics"]
+      },
+      "attributes": {
+        "Testy Test": "A testable guy, nothing more"
+      }
+    }
+}  
