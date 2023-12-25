@@ -1,4 +1,5 @@
 import json_loader
+import random
 
 #Class definition for the Race class that will become a component of the Character class, created via the CharacterBuilder class
 
@@ -33,22 +34,51 @@ class Race:
         
         for proficiency in proficiency_types:
             self.proficiencies[proficiency] = []
+            
+        self.set_age(rules)
+        self.set_languages(rules)
+        self.set_proficiencies(rules)
+        self.set_attributes(rules)
                   
         
     def set_ability_scores(self, rules):    # Updates ability scores
         ...
     
+    
     def set_age(self, rules):   # Randomises age, return value and maturity level (potentially?)
-        ...
+        age_range = rules["age_range"]
+        self.age = random.randint(1, age_range[1])
+        
+        if self.age < age_range[0]:
+            self.maturity = "immature"
+        else:
+            self.maturity = "mature"
+            
         
     def set_languages(self, rules):     # Sets the standard languages and counts the selectable number of languages for later picking in CharacterBuilder class
-        ...
+        try:
+            self.languages = rules["languages"]["standard"]
+        except KeyError:
+            pass
+        
+        try:
+            self.language_choices = rules["languages"]["selectable"]
+        except KeyError:
+            pass
+
         
     def set_proficiencies(self, rules):    # Sets the standard proficiencies
-        ...
+        for key in self.proficiencies:
+            try:
+                self.proficiencies[key] = rules["proficiencies"][key]
+            except KeyError:
+                pass
         
     def set_attributes(self, rules):   # Sets the standard attributes
-        ...
+        try:
+            self.attributes = rules["attributes"]
+        except KeyError:
+            pass
         
 
 
