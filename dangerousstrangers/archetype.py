@@ -3,20 +3,25 @@ import random
 
 #Class definition for the Archetype class that will become a component of the Character class, created via the CharacterBuilder class
 
+# Has many set_COMPONENT methods as not all fields in JSON exist and therefore the creation requires setting them to empty before then updating to rules so that each class contains all of the expected components
+
 class Archetype:
-    def __init__(self, archetype, level = 1) -> None:
+    def __init__(self, archetype, level=1, test_type=None) -> None:
         
         """Instantiates an object of class Archetype, and then reads the values from JSON files in order to populate the complex components.
 
         Args:
-            archetype (_type_): The Archetype that the character should be 
+            archetype (str): The Archetype that the character should be 
             level (int, optional): Level that the character should be created at. Defaults to 1.
+            test_type (str, optional): The top-level key to be loaded from the dict, based on the types of test called for in the pytest file. Defaults to None.
         """
-        
+        if archetype == "test":
+            rules = json_loader.load_test_file("archetype", test_type)
+            self.rules = rules # Allows the test files to see what rules the class was based on and compare to final outputs
+        else:
+            rules = json_loader.load_chosen_component("archetype", archetype)
+            
         self.archetype = archetype
-        
-        rules = json_loader.load_chosen_component("archetype", archetype)
-
         self.hitdice = rules["hitdice"]
         self.core_stat = rules["core_stat"]
         
@@ -53,7 +58,7 @@ class Archetype:
         ... 
 
 
-    def select_equipment(self, rules): # TODO - Create logic for selecting equipment - SORT OF DONE BUT NEEDS CHECKING FOR SURE
+    def set_equipment(self, rules): # TODO - Create logic for selecting equipment - SORT OF DONE BUT NEEDS CHECKING FOR SURE
 
         
         for item in rules["equipment"]:

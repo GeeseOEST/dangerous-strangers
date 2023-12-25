@@ -1,4 +1,6 @@
 {
+    "$schema": "archetypes_schema.json",
+    
     "ARCHETYPE NAME": {
       "hitdice": 0,
       "core_stat": "CORE STAT",
