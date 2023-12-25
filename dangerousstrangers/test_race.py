@@ -32,18 +32,18 @@ class TestCoreFunctions:
         assert race_resource is not None
     
     # This checks the CLASS not the JSON, so keep in mind that you will need to ensure the labels match what they're called in the CLASS *after* they have been modified
-    @pytest.mark.parametrize("attribute", ["race", "age_range", "size", "speed", "languages", "proficiencies", "attributes", "ability_score_modifiers"]) 
+    @pytest.mark.parametrize("attribute", ["race", "age", "size", "speed", "languages", "proficiencies", "attributes", "ability_score_modifiers"]) 
     def test_attributes_exist(self, attribute, race_resource):
         assert hasattr(race_resource, attribute), f"{attribute} does not exist"
 
 
 class TestSetAbilityScores:
     
-    @pytest.mark.parametrize("score", ["SRT", "DEX", "CON", "INT", "WIS", "CHA"])
+    @pytest.mark.parametrize("score", ["STR", "DEX", "CON", "INT", "WIS", "CHA"])
     def test_all_scores_exist(self, score, race_resource):
         assert (score in race_resource.ability_score_modifiers), f"ability_score_modifier[{score}] should be initialized"
     
-    @pytest.mark.parametrize("score", ["SRT", "DEX", "CON", "INT", "WIS", "CHA"])     
+    @pytest.mark.parametrize("score", ["STR", "DEX", "CON", "INT", "WIS", "CHA"])     
     def test_scores_realistic(self, score, race_resource):
         assert (race_resource.ability_score_modifiers[score] <= 5), f"ability_score_modifier[{score}] should not be more than 5"
         assert (race_resource.ability_score_modifiers[score] >= -5), f"ability_score_modifier[{score}] should not be less than -5"

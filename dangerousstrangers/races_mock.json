@@ -2,11 +2,7 @@
   "simple_test": {
     "ability_score_modifiers": {
       "STR": 1,
-      "DEX": 1,
-      "CON": 1,
-      "INT": 1,
-      "WIS": 1,
-      "CHA": 1
+      "DEX": 1
     },
     "age_range": [0, 10],
     "size": "Medium",
@@ -28,9 +24,6 @@
   },
   "realistic_test": {
     "ability_score_modifiers": {
-      "STR": 4,
-      "DEX": 2,
-      "CON": 0,
       "INT": 1,
       "WIS": -3,
       "CHA": -1
@@ -45,8 +38,6 @@
     "proficiencies": {
       "armor": ["Light Armor", "Medium Armor"],
       "weapon": ["Shortswords", "Dagger", "Crossbow, light"],
-      "tool": [],
-      "save": [],
       "skill": ["Athletics"]
     },
     "attributes": {
