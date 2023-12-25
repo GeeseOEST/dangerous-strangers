@@ -35,6 +35,7 @@ class Race:
         for proficiency in proficiency_types:
             self.proficiencies[proficiency] = []
             
+        self.set_ability_scores(rules)
         self.set_age(rules)
         self.set_languages(rules)
         self.set_proficiencies(rules)
@@ -42,7 +43,11 @@ class Race:
                   
         
     def set_ability_scores(self, rules):    # Updates ability scores
-        ...
+        for score in self.ability_score_modifiers:
+            try:
+                self.ability_score_modifiers[score] = rules["ability_score_modifiers"][score]
+            except KeyError:
+                pass
     
     
     def set_age(self, rules):   # Randomises age, return value and maturity level (potentially?)
