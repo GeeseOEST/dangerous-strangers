@@ -32,7 +32,7 @@ class Archetype:
             "save": [],
             "skill": [],
         }
-        self.optional_proficiencies = {
+        self.selectable_proficiencies = {
             "armor": [0, []],
             "weapon": [0, []],
             "tool": [0, []],
