@@ -1,10 +1,16 @@
+import json_loader
+
 #Class definition for the Race class that will become a component of the Character class, created via the CharacterBuilder class
 
 # Has many set_COMPONENT methods as not all fields in JSON exist and therefore the creation requires setting them to empty before then updating to rules so that each class contains all of the expected components
 
 class Race:
-    def __init__(self, race) -> None:
-        pass
+    def __init__(self, race, test_type=None) -> None:
+        
+        if race == "test":
+            rules = json_loader.load_test_file("race", test_type)
+        else:
+            rules = json_loader.load_chosen_component("race", race)
     
 
     def set_age(self, rules):   # Randomises age, return value and maturity level (potentially?)
@@ -23,6 +29,7 @@ class Race:
 
 """
 Components of Race:
+    race type
     ability_score_modifiers
     age_range [adult, death]
     size

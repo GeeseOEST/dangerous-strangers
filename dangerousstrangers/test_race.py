@@ -47,5 +47,21 @@ class TestSetAge:
         
 class TestSetLanguage:
     
-    def test_ss(self):
+    def test_standard_languages_set(self):
+        ...
+        
+    def test_selectable_counter_incremented(self):
+        ...
+        
+class TestSetProficiencies:
+    
+    def test_standard_proficiencies_set(self):
+        ...
+        
+    def test_selectable_proficiencies_set(self):
+        ...
+        
+class TestSetAttributes:
+    
+    def test_attributes_exist(self):
         ...
