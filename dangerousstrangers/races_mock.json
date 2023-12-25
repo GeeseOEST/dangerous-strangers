@@ -99,7 +99,10 @@
       "skill": ["Acrobatics", "Stealth", "Perception", "Persuasion", "Arcana"]
     },
     "attributes": {
-      "Absurd Tester": "Crazy guy, way outside the rules but hey, lets test!"
+      "Absurd Tester1": "1 Crazy guy, way outside the rules but hey, lets test!",
+      "Absurd Tester2": "2 Crazy guy, way outside the rules but hey, lets test!",
+      "Absurd Tester3": "3 Crazy guy, way outside the rules but hey, lets test!",
+      "Absurd Tester4": "4 Crazy guy, way outside the rules but hey, lets test!"
     }
   }
 }
