@@ -1,29 +1,105 @@
 {
-    "test_race": {
-      "ability_score_modifiers": {
-        "STR": 0,
-        "DEX": 2,
-        "CON": 0,
-        "INT": 5,
-        "WIS": 0,
-        "CHA": -1
-      },
-      "age_range": [10, 200],
-      "size": "Medium",
-      "speed": 30,
-      "languages": {
-        "standard": ["Common", "Elvish"],
-        "selectable": 1
-      },
-      "proficiencies": {
-        "armor": [],
-        "weapon": ["Shortswords"],
-        "tool": [],
-        "save": [],
-        "skill": ["Athletics"]
-      },
-      "attributes": {
-        "Testy Test": "A testable guy, nothing more"
-      }
+  "simple_test": {
+    "ability_score_modifiers": {
+      "STR": 1,
+      "DEX": 1,
+      "CON": 1,
+      "INT": 1,
+      "WIS": 1,
+      "CHA": 1
+    },
+    "age_range": [0, 10],
+    "size": "Medium",
+    "speed": 30,
+    "languages": {
+      "standard": ["Common"],
+      "selectable": 0
+    },
+    "proficiencies": {
+      "armor": [],
+      "weapon": [],
+      "tool": [],
+      "save": [],
+      "skill": []
+    },
+    "attributes": {
+      "Simple Test Case": "A very simple testable guy, nothing more"
     }
-}  
+  },
+  "realistic_test": {
+    "ability_score_modifiers": {
+      "STR": 4,
+      "DEX": 2,
+      "CON": 0,
+      "INT": 1,
+      "WIS": -3,
+      "CHA": -1
+    },
+    "age_range": [10, 2000],
+    "size": "Medium",
+    "speed": 30,
+    "languages": {
+      "standard": ["Common", "Elvish"],
+      "selectable": 1
+    },
+    "proficiencies": {
+      "armor": ["Light Armor", "Medium Armor"],
+      "weapon": ["Shortswords", "Dagger", "Crossbow, light"],
+      "tool": [],
+      "save": [],
+      "skill": ["Athletics"]
+    },
+    "attributes": {
+      "Real Test Case": "A realistically testable model, nothing more"
+    }
+  },
+  "absurd_test": {
+    "ability_score_modifiers": {
+      "STR": 5,
+      "DEX": 5,
+      "CON": 5,
+      "INT": -5,
+      "WIS": -5,
+      "CHA": -5
+    },
+    "age_range": [1, 200000],
+    "size": "Medium",
+    "speed": 300,
+    "languages": {
+      "standard": [
+        "Common",
+        "Elvish",
+        "Dwarvish",
+        "Giant",
+        "Halfling",
+        "Draconic",
+        "Gnomish",
+        "Orc",
+        "Sylvan"
+      ],
+      "selectable": 5
+    },
+    "proficiencies": {
+      "armor": ["Light Armor", "Medium Armor", "Heavy Armor", "Shields", "Scale Mail"],
+      "weapon": [
+        "Simple Weapons",
+        "Martial Weapons",
+        "Longsword",
+        "Shortbow",
+        "Warhammer"
+      ],
+      "tool": [
+        "Thieves' Tools",
+        "Disguise Kit",
+        "Herbalism Kit",
+        "Smith's Tools",
+        "Alchemist's Supplies"
+      ],
+      "save": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom"],
+      "skill": ["Acrobatics", "Stealth", "Perception", "Persuasion", "Arcana"]
+    },
+    "attributes": {
+      "Absurd Tester": "Crazy guy, way outside the rules but hey, lets test!"
+    }
+  }
+}
