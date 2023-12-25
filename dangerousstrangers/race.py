@@ -23,18 +23,25 @@ class Race:
         self.age = 0
         self.size = rules["size"]
         self.speed = rules["speed"]
-        self.ability_score_modifiers = {}
+        self.ability_score_modifiers = {
+            "STR": 0,
+            "DEX": 0,
+            "CON": 0,
+            "INT": 0,
+            "WIS": 0,
+            "CHA": 0
+        }
         self.languages = []
         self.language_choices = 0
-        self.proficiencies = {}
+        self.proficiencies = {
+            "armor": [],
+            "weapon": [],
+            "tool": [],
+            "save": [],
+            "skill": [],
+        }
         self.attributes = {}
-        
-        for score in ability_scores:
-            self.ability_score_modifiers[score] = 0
-        
-        for proficiency in proficiency_types:
-            self.proficiencies[proficiency] = []
-            
+                   
         self.set_ability_scores(rules)
         self.set_age(rules)
         self.set_languages(rules)
