@@ -1,4 +1,5 @@
 import json
+import os
 
 
 def load_top_level_keys(file_name: str) -> list:
@@ -67,14 +68,20 @@ def load_chosen_component(file_name: str, top_level_key: str) -> dict:
 
 
 
-def load_test_file(component_type: str) -> dict:
+def load_test_file(mock_type: str, top_level_key: str) -> dict:
     
-    file_name = component_type + "s_mock.json"
+    file_name = mock_type + "s_mock.json"
     try:
         with open(file_name, "r") as file:
-            component_dict = json.load(file)
+            data = json.load(file)
+            
+        if top_level_key in data:
+            component_dict = data[top_level_key]
+        else:
+            raise KeyError(f"Component {top_level_key} is not a key in {file_name}")
 
     except FileNotFoundError:
+        print("Current Working Directory: ", os.getcwd())
         raise FileNotFoundError(
             f"File {file_name} not found in same folder as json_loader"
         )

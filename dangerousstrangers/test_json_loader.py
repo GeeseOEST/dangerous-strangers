@@ -37,21 +37,20 @@ class TestLoadChosenComponent: # Tests Load Chosen Component
         }), "Component contents should match the json file"
         
         
-class TestLoadTestFile: # Tests Load Chosen Component
+class TestLoadTestFile: # Tests Load Test File for the XXXs_mock.json files
 
     def test_returns_dict(self):
-        component = load_test_file("test")
+        component = load_test_file("test", "top_level_key1")
         assert isinstance(
             component, dict
         ), "Output from load_chosen_component should be a dictionary object"
         
     def test_contains_expected_contents(self):
-        component = load_test_file("test")
+        component = load_test_file("test", "top_level_key1")
         assert (component == {
-            "top_level_key1" : {
                 "string1": "string1",
                 "list1": ["list1_item1", "list1_item2"],
                 "int1": 1
-            }}
+            }
             ), "Component contents should match the json file"
         
