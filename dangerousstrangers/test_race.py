@@ -10,10 +10,16 @@ from race import Race
 
 # Setup and teardown using fixtures
 
-@pytest.fixture
-def resource_setup_teardown():
-    test_resource = Race("test")
-    print("Setup before test")
+@pytest.fixture(params=[
+    ("test", "simple_test"),
+    ("test", "realistic_test"),
+    ("test", "absurd_test")
+])
+def race_resource(request):
+    print("Start setup before test")
+    test_resource = Race(*request.param)
+    print("End setup before test")
+
     yield test_resource
     
     print("Teardown after test")
@@ -22,10 +28,24 @@ def resource_setup_teardown():
 
 class TestCoreFunctions:
     
-    def test_attributes_exist(self, resource_setup_teardown):
-        assert hasattr(resource_setup_teardown, "age"), "age does not exist"
+    def test_initialization(self, race_resource):
+        assert race_resource is not None
+    
+    # This checks the CLASS not the JSON, so keep in mind that you will need to ensure the labels match what they're called in the CLASS *after* they have been modified
+    @pytest.mark.parametrize("attribute", ["age_range", "size", "speed", "languages", "proficiencies", "attributes", "ability_score_modifiers"]) 
+    def test_attributes_exist(self, attribute, race_resource):
+        assert hasattr(race_resource, attribute), f"{attribute} does not exist"
+
+    
+class TestSetAge:
+    
+    def test_age_appropriate(self, race_resource):
+        ...
         
-    def test_age_range_exist(self, resource_setup_teardown):
-        assert hasattr(resource_setup_teardown, "age_range"), "age_range does not exist"
+    def test_maturity_level_configured(self, race_resource):
+        ...
         
-        
+class TestSetLanguage:
+    
+    def test_ss(self):
+        ...
