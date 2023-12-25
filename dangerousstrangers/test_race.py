@@ -47,7 +47,14 @@ class TestSetAbilityScores:
     def test_scores_realistic(self, score, race_resource):
         assert (race_resource.ability_score_modifiers[score] <= 5), f"ability_score_modifier[{score}] should not be more than 5"
         assert (race_resource.ability_score_modifiers[score] >= -5), f"ability_score_modifier[{score}] should not be less than -5"
-
+        
+    @pytest.mark.parametrize("score", ["STR", "DEX", "CON", "INT", "WIS", "CHA"])    
+    def test_scores_are_correct(self, score, race_resource):
+        try: 
+            assert (race_resource.ability_score_modifiers[score] == race_resource.rules["ability_score_modifiers"][score])
+        except KeyError:
+            pass
+        
     
 class TestSetAge:
     
