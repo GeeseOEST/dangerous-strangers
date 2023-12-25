@@ -22,6 +22,7 @@ class Archetype:
             rules = json_loader.load_chosen_component("archetype", archetype)
             
         self.archetype = archetype
+        self.level = level
         self.hitdice = rules["hitdice"]
         self.core_stat = rules["core_stat"]
         
@@ -41,35 +42,35 @@ class Archetype:
         }
         self.equipment = []
         self.features = []
+        
+        self.set_proficiencies(rules)
+        self.set_equipment(rules)
 
     
     def set_proficiencies(self, rules): # TODO - Work out logic for selecting randomly selectable proficiencies
-
-    # Set standard proficiencies off the bat
 
         for key in self.proficiencies:
             if key in rules["proficiencies"]["standard"]:
                 self.proficiencies[key] = rules["proficiencies"]["standard"][key]
 
-    # Add selectable proficiencies with random choice - Doing this inside individual classes for each component means we will possibly run into duplicate proficiencies. For NPCs it's okay to handwave and say it just provides more randomness, but that needs to be documented or fixed later. Again, might not even be worth it outside of scope of the course stuff.
-    # DECISION - Will actually create a third run which is the selectable proficiencies, then in the CharacterBuilder process or inside the Character class will have it combine all three and then select, avoiding any overlap. Need to ensure then that this is implemented.
-    # TODO - Logic for adding to this decision list
+        for key in self.selectable_proficiencies:
+            if key in rules["proficiencies"]["selectable"]:
+                self.selectable_proficiencies[key] = rules["proficiencies"]["selectable"][key]        
 
-        ... 
 
 
     def set_equipment(self, rules): # TODO - Create logic for selecting equipment - SORT OF DONE BUT NEEDS CHECKING FOR SURE
 
         
-        for item in rules["equipment"]:
-            number_of_choices = len(item)
-            choice = random.randint(0, number_of_choices - 1)
-            self.equipment.append(item[choice]) 
-
-    
+        for choice in rules["equipment"]:
+            if isinstance(choice[0], list):
+                self.equipment.append(random.choice(choice))
+            else:
+                self.equipment.append(choice)
+           
+            
 
     def set_features(self, rules): # TODO - Create logic for adding features appropriate to the level of the character
-
         ...
 
 
