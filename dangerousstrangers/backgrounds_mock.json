@@ -1,0 +1,142 @@
+{
+  "simple_test": {
+    "proficiencies": {
+      "standard": {
+        "armor": [],
+        "weapon": [],
+        "tool": [],
+        "save": [],
+        "skill": []
+      },
+      "selectable": {
+        "armor": [0, "PROFICIENCY NAME"],
+        "weapon": [0, "PROFICIENCY NAME"],
+        "tool": [0, "PROFICIENCY NAME"],
+        "save": [0, "PROFICIENCY NAME"],
+        "skill": [0, "PROFICIENCY NAME"]
+      }
+    },
+    "languages": {
+      "standard": [],
+      "selectable": 2
+    },
+    "equipment": [
+      "A holy symbol",
+      "A prayer book or prayer wheel",
+      "Sticks of insence",
+      "Vestements",
+      "A set of common clothes"
+    ],
+    "money": {
+      "CP": 0,
+      "SP": 0,
+      "EP": 0,
+      "GP": 15,
+      "PP": 0
+    },
+    "feats": {
+      "Shelter Of The Faithful": "As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple."
+    }
+  },
+  "realistic_test": {
+    "proficiencies": {
+      "standard": {
+        "skill": ["Insight", "Religion"]
+      },
+      "languages": {
+        "standard": [],
+        "selectable": 2
+      },
+      "equipment": [
+        "A holy symbol",
+        "A prayer book or prayer wheel",
+        "Sticks of insence",
+        "A set of common clothes"
+      ],
+      "money": {
+        "CP": 0,
+        "SP": 0,
+        "EP": 0,
+        "GP": 15,
+        "PP": 0
+      },
+      "feats": {
+        "Shelter Of The Faithful": "As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple."
+      }
+    },
+    "absurd_test": {
+      "proficiencies": {
+        "standard": {
+          "skill": ["Insight", "Religion"]
+        },
+        "selectable": {
+          "armor": [
+            3,
+            [
+              "Stealth",
+              "Survival",
+              "Arcana",
+              "Athletics",
+              "Nature",
+              "Thieves' Tools",
+              "Carpenter's Tools",
+              "Herbalism Kit",
+              "Brewer's Supplies",
+              "Disguise Kit",
+              "Longbow",
+              "Rapier",
+              "Light Armor",
+              "Medium Armor",
+              "Shields"
+            ]
+          ]
+        }
+      },
+      "languages": {
+        "standard": ["Sneaker", "Tester"],
+        "selectable": 2
+      },
+      "equipment": [
+        "A holy symbol",
+        "A prayer book or prayer wheel",
+        "Sticks of insence",
+        "Vestements",
+        "A set of common clothes",
+        "Rope",
+        "Torch",
+        "Water Flask",
+        "Trail Rations",
+        "Map",
+        "Healing Potion",
+        "Dagger",
+        "Blanket",
+        "Flint and Steel",
+        "Scroll Case",
+        "Compass",
+        "Ink and Quill",
+        "Spellbook",
+        "Holy Symbol",
+        "Grappling Hook",
+        "Candles",
+        "Crowbar",
+        "Hooded Lantern",
+        "Bedroll",
+        "Signal Whistle"
+      ],
+      "money": {
+        "CP": 3,
+        "SP": 60,
+        "EP": 2,
+        "GP": 15,
+        "PP": 99
+      },
+      "feats": {
+        "1 Shelter Of The Faithful": "1 As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple.",
+        "2 Shelter Of The Faithful": "2 As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple.",
+        "4 Shelter Of The Faithful": "3 As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple.",
+        "5 Shelter Of The Faithful": "4 As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple.",
+        "6 Shelter Of The Faithful": "5 As an acolyte, you command respect from others who share your faith. You are able to perform religious ceremonmies for your deity and can expect shelter for you and your adventuring companions at a temple, shirne, or other established presence of your faith.\n When near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous, and you remain in good standing with your temple."
+      }
+    }
+  }
+}
