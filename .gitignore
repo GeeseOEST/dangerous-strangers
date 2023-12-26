@@ -1,6 +1,7 @@
 # Git Ignore File
 
 *CS50*
+*.vscode*
 
 # Local Test Cache Files
-dangerousstrangers/__pycache__/*
+*/__pycache__/*

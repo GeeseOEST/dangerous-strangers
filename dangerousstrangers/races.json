@@ -8,7 +8,7 @@
       "WIS": 1,
       "CHA": 1
     },
-    "age_range": [0, 100],
+    "age_range": [20, 100],
     "size": "Medium",
     "speed": 30,
     "languages": {
@@ -24,7 +24,7 @@
     "ability_score_modifiers": {
       "DEX": 2
     },
-    "age_range": [0, 750],
+    "age_range": [150, 750],
     "size": "Medium",
     "speed": 30,
     "languages": {

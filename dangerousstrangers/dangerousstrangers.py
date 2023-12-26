@@ -1,5 +1,6 @@
 import random
-import json_loader
+import dangerousstrangers.json_loader
+#from archetype import Archetype
 
 """
 Randomizes the components, rolls random scores, and then sends them all to the CharacterBuilder to create instances of the Archetype, Race, Background classes and combine them all into a Character class. Once finished, this recieves that back and then prints it out. 
@@ -8,7 +9,13 @@ This somewhat makes this file complex as we're not taking the randomization or p
 
 
 def main():
-    roll_scores()
+    scores = roll_scores()
+    characteristics = select_characteristics()
+    
+    #character_archetype = Archetype(characteristics["archetype"])
+    
+    print (scores)
+    print (characteristics)
 
 
 def select_characteristics() -> dict:
@@ -43,7 +50,7 @@ def randomize_characteristics() -> dict:
     characteristics = {"race": None, "archetype": None, "background": None}
 
     for key in characteristics:
-        top_level_keys = json_loader.load_top_level_keys(key)
+        top_level_keys = dangerousstrangers.json_loader.load_top_level_keys(key)
         choice = random.choice(top_level_keys)
         characteristics[key] = choice
 
@@ -64,7 +71,7 @@ def select_name(race: str) -> dict:
         dict: 'first':_, 'last':_
     """
 
-    names = json_loader.load_chosen_component("name", race)
+    names = dangerousstrangers.json_loader.load_chosen_component("name", race)
     character_name = {"first": None, "last": None}
 
     for position in character_name:

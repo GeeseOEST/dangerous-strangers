@@ -1,0 +1,8 @@
+{
+    "top_level_key1": {
+      "string1": "string1",
+      "list1": ["list1_item1", "list1_item2"],
+      "int1": 1
+    }
+}
+  

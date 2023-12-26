@@ -1,6 +1,9 @@
 {
+    "$schema": "archetypes_schema.json",
+    
     "ARCHETYPE NAME": {
       "hitdice": 0,
+      "core_stat": "CORE STAT",
       "proficiencies": {
         "standard": {
           "armor": ["ARMOR PROFICIENCIES"],
@@ -10,11 +13,11 @@
           "skill": ["SKILL PROFICIENCIES"]
         },
         "selectable": {
-          "armor": [0, "PROFICIENCY NAME"],
-          "weapon": [0, "PROFICIENCY NAME"],
-          "tool": [0, "PROFICIENCY NAME"],
-          "save": [0, "PROFICIENCY NAME"],
-          "skill": [0, "PROFICIENCY NAME"]
+          "armor": [0, ["PROFICIENCY OPTION 1", "PROFICIENCY OPTION 2"]],
+          "weapon": [0, ["PROFICIENCY OPTION 1", "PROFICIENCY OPTION 2"]],
+          "tool": [0, ["PROFICIENCY OPTION 1", "PROFICIENCY OPTION 2"]],
+          "save": [0, ["PROFICIENCY OPTION 1", "PROFICIENCY OPTION 2"]],
+          "skill": [0, ["PROFICIENCY OPTION 1", "PROFICIENCY OPTION 2"]]
         }
       },
       "equipment": [

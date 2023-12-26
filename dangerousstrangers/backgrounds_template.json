@@ -1,5 +1,5 @@
 {
-    "acolyte": {
+    "BACKGROUND NAME": {
       "proficiencies": {
         "standard": {
           "armor": [],
@@ -30,7 +30,7 @@
         "GP": 0,
         "PP": 0
       },
-      "feature": {
+      "feats": {
         "FEATURE TITLE": "FEATURE DESCRIPTION"
       }
     }

@@ -1,0 +1,156 @@
+{
+  "simple_test": {
+    "hitdice": 8,
+    "core_stat": "STR",
+    "proficiencies": {
+      "standard": {
+        "armor": [],
+        "weapon": [],
+        "tool": [],
+        "save": [],
+        "skill": []
+      },
+      "selectable": {
+        "armor": [0, []],
+        "weapon": [0, []],
+        "tool": [0, []],
+        "save": [0, []],
+        "skill": [0, []]
+      }
+    },
+    "equipment": [
+      [
+        ["Greataxe", 1],
+        ["Martial melee weapon", 1]
+      ],
+      [
+        ["Handaxe", 2],
+        ["Simple weapon", 1]
+      ],
+      ["Explorer's pack", 1],
+      ["Javelin", 4]
+    ],
+    "feats": {
+      "1": {
+        "Rage": "In battle, you fight with a primal ferocity. On your turn, you can enter a rage as a Bonus Action. When you rage, you gain the following attributes:\n - You have advantage on Strength checks and Strength saving throws"
+      },
+      "2": {
+        "Reckless Attack": "You can attack with fierce desperation. On your turn, when you make your first attack, you can decide to attack recklessly. Doing so gives you Avantage on melee weapon attack roles using Strength, but attack rolls against you have Advantage until your next turn."
+      }
+    }
+  },
+
+  "realistic_test": {
+    "hitdice": 12,
+    "core_stat": "STR",
+    "proficiencies": {
+      "standard": {
+        "armor": ["Light armor", "Medium armor", "Shields"],
+        "weapon": ["Simple weapons", "Martial weapons"],
+        "save": ["Strength", "Constitution"]
+      },
+      "selectable": {
+        "skill": [
+          2,
+          [
+            "Animal handling",
+            "Athletics",
+            "Intimidation",
+            "Nature",
+            "Perception",
+            "Survival"
+          ]
+        ]
+      }
+    },
+    "equipment": [
+      [
+        ["Greataxe", 1],
+        ["Martial melee weapon", 1]
+      ],
+      [
+        ["Handaxe", 2],
+        ["Simple weapon", 1]
+      ],
+      ["Explorer's pack", 1],
+      ["Javelin", 4]
+    ],
+    "feats": {
+      "1": {
+        "Rage": "In battle, you fight with a primal ferocity. On your turn, you can enter a rage as a Bonus Action. When you rage, you gain the following attributes:\n - You have advantage on Strength checks and Strength saving throws\n - When you make a melee weapon attack using Strength, you gain a bonus +2 to the damage roll\n - You have Resistance to Bludgeoning, Piercing, and Slashing damage\n Your rage lasts for 1 minute, or ends early if you are knocked unconcious or have not taken damage or attacked a hostile creature since your last turn. You can also end your rage as a bonus action.\n You can rage 2 times per Long Rest.",
+        "Unarmoured Defense": "When you are not wearing armor, your Armor Class equals 10 + your Dexterity Modifier + your Constitution modifier. You can use a shield and still gain this benefit."
+      },
+      "2": {
+        "Reckless Attack": "You can attack with fierce desperation. On your turn, when you make your first attack, you can decide to attack recklessly. Doing so gives you Avantage on melee weapon attack roles using Strength, but attack rolls against you have Advantage until your next turn."
+      }
+    }
+  },
+
+  "absurd_test": {
+    "hitdice": 20,
+    "core_stat": "STR",
+    "proficiencies": {
+      "standard": {
+        "armor": ["Light armor", "Medium armor", "Shields"],
+        "weapon": [
+          "Simple weapons",
+          "Martial weapons",
+          "Longsword",
+          "Shortbow",
+          "Warhammer"
+        ],
+        "save": ["Strength", "Constitution"],
+        "skill": ["History", "Insight", "Medicine", "Nature", "Survival"]
+      },
+      "selectable": {
+        "skill": [
+          2,
+          [
+            "Animal handling",
+            "Athletics",
+            "Intimidation",
+            "Nature",
+            "Perception",
+            "Survival"
+          ]
+        ],
+        "tool": [
+          3,
+          [
+            "Painter's Supplies",
+            "Potter's Tools",
+            "Cartographer's Tools",
+            "Clockwork Mechanism Kit",
+            "Rune Crafting Tools"
+          ]
+        ]
+      }
+    },
+    "equipment": [
+      [
+        ["Greataxe", 1],
+        ["Martial melee weapon", 1],
+        ["Shortsword", 1],
+        ["Simple weapon", 1]
+      ],
+      [
+        ["Handaxe", 2],
+        ["Simple weapon", 1]
+      ],
+      ["Explorer's pack", 1],
+      ["Javelin", 4],
+      ["Darts", 10]
+    ],
+    "feats": {
+      "1": {
+        "Rage": "In battle, you fight with a primal ferocity. On your turn, you can enter a rage as a Bonus Action. When you rage, you gain the following attributes:\n - You have advantage on Strength checks and Strength saving throws\n - When you make a melee weapon attack using Strength, you gain a bonus +2 to the damage roll\n - You have Resistance to Bludgeoning, Piercing, and Slashing damage\n Your rage lasts for 1 minute, or ends early if you are knocked unconcious or have not taken damage or attacked a hostile creature since your last turn. You can also end your rage as a bonus action.\n You can rage 2 times per Long Rest.",
+        "Unarmoured Defense": "When you are not wearing armor, your Armor Class equals 10 + your Dexterity Modifier + your Constitution modifier. You can use a shield and still gain this benefit.",
+        "Unarmoured Defense 2": "When you are not wearing armor and not wielding a shield, your AC equals 10 + your Dexterity Modifier + your Wisdom Modifier.",
+        "Martial Arts": "Your pracitce of martial arts gives you mastery of combat styles which are unarmed or using Monk weapons (shortswords, or simple melee weapons that do not have the two handed or heavy property). You gain the following benefits while fighting in these styles AND not wearing armor or a shield.\n - You can use Dexterity instead of Strenght for the attack and damage rolls of your unarmed strikes and monk weapon attacks\n - You can roll a d4 in place of the normal damage of your attack\n When you attack with an unarmed strike or monk weapon on your turn, you can make one additional unarmed strike as a Bonus Action."
+      },
+      "2": {
+        "Reckless Attack": "You can attack with fierce desperation. On your turn, when you make your first attack, you can decide to attack recklessly. Doing so gives you Avantage on melee weapon attack roles using Strength, but attack rolls against you have Advantage until your next turn."
+      }
+    }
+  }
+}

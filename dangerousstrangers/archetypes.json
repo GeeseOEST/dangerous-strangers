@@ -1,6 +1,7 @@
 {
   "barbarian": {
     "hitdice": 12,
+    "core_stat": "STR",
     "proficiencies": {
       "standard": {
         "armor": ["Light armor", "Medium armor", "Shields"],
@@ -46,6 +47,7 @@
 
   "monk": {
     "hitdice": 8,
+    "core_stat": "DEX",
     "proficiencies": {
       "standard": {
         "weapon": ["Simple weapons", "Shortswords"],

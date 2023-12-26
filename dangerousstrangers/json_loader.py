@@ -1,4 +1,5 @@
 import json
+import os
 
 
 def load_top_level_keys(file_name: str) -> list:
@@ -11,9 +12,9 @@ def load_top_level_keys(file_name: str) -> list:
         list: List of all keys in the JSON file at the top level
     """
     if file_name == "test":
-        file_name = "test.json"
+        file_name = "dangerousstrangers/test.json"
     else:
-        file_name = f"{file_name}s.json"  # JSON files are named with plurals however keywords in .py are not, so the s handles this. Not the best solution long term.
+        file_name = f"dangerousstrangers/{file_name}s.json"  # JSON files are named with plurals however keywords in .py are not, so the s handles this. Not the best solution long term.
 
     try:
         with open(file_name, "r") as file:
@@ -43,9 +44,9 @@ def load_chosen_component(file_name: str, top_level_key: str) -> dict:
         dict: Full dictionary object of everything contained in the JSON description that can be used to create a class of that object
     """
     if file_name == "test":
-        file_name = "test.json"
+        file_name = "dangerousstrangers/test.json"
     else:
-        file_name = f"{file_name}s.json"
+        file_name = f"dangerousstrangers/{file_name}s.json"
 
     try:
         with open(file_name, "r") as file:
@@ -57,6 +58,30 @@ def load_chosen_component(file_name: str, top_level_key: str) -> dict:
             raise KeyError(f"Component {top_level_key} is not a key in {file_name}")
 
     except FileNotFoundError:
+        raise FileNotFoundError(
+            f"File {file_name} not found in same folder as json_loader"
+        )
+    except json.JSONDecodeError:
+        raise ValueError("Invalid JSON file")
+
+    return component_dict
+
+
+
+def load_test_file(mock_type: str, top_level_key: str) -> dict:
+    
+    file_name = 'dangerousstrangers/' + mock_type + "s_mock.json"
+    try:
+        with open(file_name, "r") as file:
+            data = json.load(file)
+            
+        if top_level_key in data:
+            component_dict = data[top_level_key]
+        else:
+            raise KeyError(f"Component {top_level_key} is not a key in {file_name} - json_loader")
+
+    except FileNotFoundError:
+        print("Current Working Directory: ", os.getcwd())
         raise FileNotFoundError(
             f"File {file_name} not found in same folder as json_loader"
         )
