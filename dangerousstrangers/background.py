@@ -52,7 +52,15 @@ class Background:
         ...
         
     def set_languages(self, rules):    # Set the standard languages and also + the number of selectable languages for selection in the CharacterBuilder class
-        ...
+        try:
+            self.languages = rules["languages"]["standard"]
+        except KeyError:
+            pass
+        
+        try:
+            self.language_choices = rules["languages"]["selectable"]
+        except KeyError:
+            pass
     
     def set_equipment(self, rules):    # Sets the list of equipment provided by the background
         for choice in rules["equipment"]:
