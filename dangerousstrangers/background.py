@@ -81,7 +81,8 @@ class Background:
             self.equipment.append(choice)
         
     def set_money(self, rules):    # Sets the amount of money the character holds based on the background
-        ...
+        for coin in self.money:
+            self.money[coin] = rules["money"][coin]
         
     def set_features(self, rules):  # Sets the feature list for the character
         self.features = rules["feats"]
