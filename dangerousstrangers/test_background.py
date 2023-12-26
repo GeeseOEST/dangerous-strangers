@@ -99,7 +99,21 @@ class TestSetEquipment:
     
 
 class TestSetMoney:
-    ...
+    
+    @pytest.mark.parametrize("coin", ["CP", "SP", "EP", "GP", "PP"])
+    def test_money_contains_all_keys(self, background_resource, coin):
+        try:
+            assert (coin in background_resource.money)
+        except KeyError:
+            assert False, f"{coin} should be a key in self.money"
+            
+    @pytest.mark.parametrize("coin", ["CP", "SP", "EP", "GP", "PP"])        
+    def test_money_matches_json(self, background_resource, coin):
+        try: 
+            assert (background_resource.money[coin] == background_resource.rules["money"][coin])
+        except KeyError:
+            assert False, f"{coin} should be a key in self.money and self.rules['money']"
+
     
 
 class TestSetFeatures:
