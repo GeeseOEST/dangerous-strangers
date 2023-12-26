@@ -57,11 +57,48 @@ class TestSetProficiencies:
             pass
 
 class TestSetLanguages:
-    ...
+    
+    def test_standard_languages_set(self, background_resource):
+        try: 
+            assert (background_resource.languages == background_resource.rules["languages"]["standard"]), "Standard languages should match JSON"
+        except KeyError:
+            pass
+        
+    def test_selectable_counter_incremented(self, background_resource):
+        assert hasattr(background_resource, "language_choices"), "Selectable language counter 'language_choices' does not exist"
+        try:
+            assert (background_resource.language_choices == background_resource.rules["languages"]["selectable"]), "language_choices should match JSON"
+        except KeyError:
+            pass
     
 
 class TestSetEquipment:
-    ...
+    
+    def test_correct_amount_of_equipment(self, background_resource):
+        assert len(background_resource.equipment) == len(
+            background_resource.rules["equipment"]
+        )
+
+    def test_equipment_correctly_set(self, background_resource):
+        try:
+            for item in range(len(background_resource.rules["equipment"])):
+                assert (
+                    background_resource.equipment[item]
+                    in background_resource.rules["equipment"][item]
+                    or background_resource.equipment[item]
+                    == background_resource.rules["equipment"][item]
+                ), f"{background_resource.equipment[item]} should be in equipment[{item}]"
+        except IndexError:
+            assert (False), f"{item} is not a valid index, equipment list may not yet exist"
+            
+    def test_equipment_follows_correct_pattern(self, background_resource):
+        if len(background_resource.equipment) > 0:
+            # print(background_resource.equipment)
+            for item in range(len(background_resource.equipment)):
+                # print(item)
+                # print(background_resource.equipment[item])
+                assert isinstance(background_resource.equipment[item][0], str)
+                assert isinstance(background_resource.equipment[item][1], int)
     
 
 class TestSetMoney:
@@ -69,4 +106,27 @@ class TestSetMoney:
     
 
 class TestSetFeatures:
-    ...
+    
+    def test_features_is_dict(self, background_resource):
+        assert isinstance(background_resource.features, dict), "self.features should be a dict"
+    
+    def test_features_match_level_simple(self, background_resource):
+        correct_number_of_feats = 0
+        
+        for level in range(background_resource.level):
+            correct_number_of_feats += len(background_resource.rules["feats"][f'{level+1}'])
+            
+        assert correct_number_of_feats == len(
+            background_resource.features
+        ), f"Archetype has {len(background_resource.features)} feats, should have {correct_number_of_feats}"
+        
+        
+    def test_features_contain_correct_key_value(self, background_resource):
+               
+        correct_feats = {}
+        for level in range(background_resource.level):
+            for key in background_resource.rules["feats"][f"{level+1}"]:
+                correct_feats[key] = background_resource.rules["feats"][f"{level+1}"][key]
+                 
+        for key in background_resource.features:
+            assert background_resource.features[key] == correct_feats[key]

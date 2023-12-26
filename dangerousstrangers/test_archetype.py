@@ -117,17 +117,12 @@ class TestSetFeatures:
         ), f"Archetype has {len(archetype_resource.features)} feats, should have {correct_number_of_feats}"
         
         
-    def test_features_complete(self, archetype_resource):
-        
-        # Check thorough resource.features that it includes the correct key and description
-        # Use key, check in .features, check == between value and key
-        
+    def test_features_contain_correct_key_value(self, archetype_resource):
+               
         correct_feats = {}
         for level in range(archetype_resource.level):
             for key in archetype_resource.rules["feats"][f"{level+1}"]:
                 correct_feats[key] = archetype_resource.rules["feats"][f"{level+1}"][key]
-        
-        
           
         for key in archetype_resource.features:
             assert archetype_resource.features[key] == correct_feats[key]
