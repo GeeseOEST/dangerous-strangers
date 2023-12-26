@@ -49,7 +49,21 @@ class Background:
 
     
     def set_proficiencies(self, rules):    # Set the standard proficiences and + the number of selectable proficiencies for selection in the CharacterBuilder class
-        ...
+        
+        
+        for key in self.proficiencies:
+            try:
+                if key in rules["proficiencies"]["standard"]:
+                    self.proficiencies[key] = rules["proficiencies"]["standard"][key]
+            except KeyError:
+                pass
+
+        for key in self.selectable_proficiencies:
+            try:
+                if key in rules["proficiencies"]["selectable"]:
+                    self.selectable_proficiencies[key] = rules["proficiencies"]["selectable"][key]
+            except KeyError:
+                pass
         
     def set_languages(self, rules):    # Set the standard languages and also + the number of selectable languages for selection in the CharacterBuilder class
         try:

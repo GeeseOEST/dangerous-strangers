@@ -79,7 +79,8 @@ class Race:
             pass
 
         
-    def set_proficiencies(self, rules):    # Sets the standard proficiencies
+# TODO - Set up some sort of selectable proficiencies for Race as it exists in the SRD        
+    def set_proficiencies(self, rules):    # Sets the standard proficiencies 
         for key in self.proficiencies:
             try:
                 self.proficiencies[key] = rules["proficiencies"][key]
