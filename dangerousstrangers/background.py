@@ -70,7 +70,7 @@ class Background:
         ...
         
     def set_features(self, rules):  # Sets the feature list for the character
-        ...
+        self.features = rules["feats"]
     
     
 """
