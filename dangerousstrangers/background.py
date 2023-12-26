@@ -3,7 +3,7 @@
 # Has many set_COMPONENT methods as not all fields in JSON exist and therefore the creation requires setting them to empty before then updating to rules so that each class contains all of the expected components
 
 class Background:
-    def __init__(self, background) -> None:
+    def __init__(self, background, test_type=None) -> None:
         pass
     
     def set_proficiencies(self, rules):    # Set the standard proficiences and + the number of selectable proficiencies for selection in the CharacterBuilder class

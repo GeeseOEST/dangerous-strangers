@@ -21,7 +21,7 @@ class TestCoreFunctions:
         assert background_resource is not None
     
     # This checks the CLASS not the JSON, so keep in mind that you will need to ensure the labels match what they're called in the CLASS *after* they have been modified
-    @pytest.mark.parametrize("attribute", ["race", "age", "size", "speed", "languages", "proficiencies", "attributes", "ability_score_modifiers"]) 
+    @pytest.mark.parametrize("attribute", ["background", "proficiencies", "selectable_proficiencies", "languages", "equipment", "money", "features"]) 
     def test_attributes_exist(self, attribute, background_resource):
         assert hasattr(background_resource, attribute), f"{attribute} does not exist"
 
@@ -93,10 +93,7 @@ class TestSetEquipment:
             
     def test_equipment_follows_correct_pattern(self, background_resource):
         if len(background_resource.equipment) > 0:
-            # print(background_resource.equipment)
             for item in range(len(background_resource.equipment)):
-                # print(item)
-                # print(background_resource.equipment[item])
                 assert isinstance(background_resource.equipment[item][0], str)
                 assert isinstance(background_resource.equipment[item][1], int)
     
@@ -110,23 +107,30 @@ class TestSetFeatures:
     def test_features_is_dict(self, background_resource):
         assert isinstance(background_resource.features, dict), "self.features should be a dict"
     
-    def test_features_match_level_simple(self, background_resource):
-        correct_number_of_feats = 0
+    def test_features_correct_length(self, background_resource):
+        len_self_features = len(background_resource.features)
+        len_rules_features = len(background_resource.rules["feats"])
         
-        for level in range(background_resource.level):
-            correct_number_of_feats += len(background_resource.rules["feats"][f'{level+1}'])
-            
-        assert correct_number_of_feats == len(
-            background_resource.features
-        ), f"Archetype has {len(background_resource.features)} feats, should have {correct_number_of_feats}"
+        assert (len_rules_features == len_self_features), f"Self.Features is {len_self_features} and should be {len_rules_features}"
         
         
-    def test_features_contain_correct_key_value(self, background_resource):
-               
-        correct_feats = {}
-        for level in range(background_resource.level):
-            for key in background_resource.rules["feats"][f"{level+1}"]:
-                correct_feats[key] = background_resource.rules["feats"][f"{level+1}"][key]
-                 
+    def test_features_contain_all_keys(self, background_resource):
         for key in background_resource.features:
-            assert background_resource.features[key] == correct_feats[key]
+            try:
+                key_value = background_resource.features[key]
+            except KeyError:
+                assert False, f"Value of {key} should be initialized"
+                
+    def test_features_contain_values(self, background_resource):
+        for key in background_resource.features:
+            assert (background_resource.features[key] is not None), f"Key {key} should have a value, is currently None"
+        
+        
+    def test_features_contain_correct_keys(self, background_resource):
+        for key in background_resource.rules["feats"]:
+            try:
+                assert (
+                    background_resource.features[key] == background_resource.rules["feats"][key]
+                ), f"Key {key} is not equal between self.features and rules['feats']"
+            except KeyError:
+                assert False, f"Key {key} should exist in self.features and rules['feats']"
