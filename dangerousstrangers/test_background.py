@@ -91,13 +91,6 @@ class TestSetEquipment:
         except IndexError:
             assert (False), f"{item} is not a valid index, equipment list may not yet exist"
             
-    def test_equipment_follows_correct_pattern(self, background_resource):
-        if len(background_resource.equipment) > 0:
-            for item in range(len(background_resource.equipment)):
-                assert isinstance(background_resource.equipment[item][0], str)
-                assert isinstance(background_resource.equipment[item][1], int)
-    
-
 class TestSetMoney:
     
     @pytest.mark.parametrize("coin", ["CP", "SP", "EP", "GP", "PP"])

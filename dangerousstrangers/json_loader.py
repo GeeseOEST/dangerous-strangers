@@ -78,7 +78,7 @@ def load_test_file(mock_type: str, top_level_key: str) -> dict:
         if top_level_key in data:
             component_dict = data[top_level_key]
         else:
-            raise KeyError(f"Component {top_level_key} is not a key in {file_name}")
+            raise KeyError(f"Component {top_level_key} is not a key in {file_name} - json_loader")
 
     except FileNotFoundError:
         print("Current Working Directory: ", os.getcwd())

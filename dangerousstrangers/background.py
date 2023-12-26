@@ -1,4 +1,5 @@
 import dangerousstrangers.json_loader
+import random
 
 #Class definition for the Background class that will become a component of the Character class, created via the CharacterBuilder class
 
@@ -38,7 +39,13 @@ class Background:
             "GP": 0,
             "PP": 0
         }
-        self.features = {}      
+        self.features = {}
+        
+        self.set_proficiencies(rules)
+        self.set_languages(rules)
+        self.set_equipment(rules)
+        self.set_money(rules)
+        self.set_features(rules)
 
     
     def set_proficiencies(self, rules):    # Set the standard proficiences and + the number of selectable proficiencies for selection in the CharacterBuilder class
@@ -48,7 +55,8 @@ class Background:
         ...
     
     def set_equipment(self, rules):    # Sets the list of equipment provided by the background
-        ...
+        for choice in rules["equipment"]:
+            self.equipment.append(choice)
         
     def set_money(self, rules):    # Sets the amount of money the character holds based on the background
         ...
