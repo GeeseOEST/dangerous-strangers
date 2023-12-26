@@ -1,4 +1,4 @@
-import json_loader
+import dangerousstrangers.json_loader
 import random
 
 #Class definition for the Archetype class that will become a component of the Character class, created via the CharacterBuilder class
@@ -16,10 +16,10 @@ class Archetype:
             test_type (str, optional): The top-level key to be loaded from the dict, based on the types of test called for in the pytest file. Defaults to None.
         """
         if archetype == "test":
-            rules = json_loader.load_test_file("archetype", test_type)
+            rules = dangerousstrangers.json_loader.load_test_file("archetype", test_type)
             self.rules = rules # Allows the test files to see what rules the class was based on and compare to final outputs
         else:
-            rules = json_loader.load_chosen_component("archetype", archetype)
+            rules = dangerousstrangers.json_loader.load_chosen_component("archetype", archetype)
             
         self.archetype = archetype
         self.level = level

@@ -1,4 +1,4 @@
-import json_loader
+import dangerousstrangers.json_loader
 import random
 
 #Class definition for the Race class that will become a component of the Character class, created via the CharacterBuilder class
@@ -12,10 +12,10 @@ class Race:
         proficiency_types = ["armor", "weapon", "tool", "save", "skill"]
         
         if race == "test":
-            rules = json_loader.load_test_file("race", test_type)
+            rules = dangerousstrangers.json_loader.load_test_file("race", test_type)
             self.rules = rules # Allows the test files to see what rules the class was based on and compare to final outputs
         else:
-            rules = json_loader.load_chosen_component("race", race)
+            rules = dangerousstrangers.json_loader.load_chosen_component("race", race)
         
         # Sets everything to intialized so all Race classes have the same attributes for adding together later
         

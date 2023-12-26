@@ -1,5 +1,5 @@
 import pytest
-from archetype import Archetype
+from dangerousstrangers.archetype import Archetype
 
 
 @pytest.fixture(

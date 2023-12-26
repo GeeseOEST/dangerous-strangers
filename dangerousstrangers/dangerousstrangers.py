@@ -1,5 +1,5 @@
 import random
-import json_loader
+import dangerousstrangers.json_loader
 #from archetype import Archetype
 
 """
@@ -50,7 +50,7 @@ def randomize_characteristics() -> dict:
     characteristics = {"race": None, "archetype": None, "background": None}
 
     for key in characteristics:
-        top_level_keys = json_loader.load_top_level_keys(key)
+        top_level_keys = dangerousstrangers.json_loader.load_top_level_keys(key)
         choice = random.choice(top_level_keys)
         characteristics[key] = choice
 
@@ -71,7 +71,7 @@ def select_name(race: str) -> dict:
         dict: 'first':_, 'last':_
     """
 
-    names = json_loader.load_chosen_component("name", race)
+    names = dangerousstrangers.json_loader.load_chosen_component("name", race)
     character_name = {"first": None, "last": None}
 
     for position in character_name:

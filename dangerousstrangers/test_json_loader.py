@@ -1,6 +1,6 @@
 import pytest
 
-from json_loader import load_top_level_keys, load_chosen_component, load_test_file
+from dangerousstrangers.json_loader import load_top_level_keys, load_chosen_component, load_test_file
 
 
 class TestLoadTopLevelKeys: # Tests Top Level Keys

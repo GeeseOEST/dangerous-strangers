@@ -6,7 +6,7 @@ import os
 # Adjust sys.path to include the dangerousstrangers directory as no src directory exists currently. Not in use currently as test directory not used.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'dangerousstrangers')))'''
 
-from race import Race
+from dangerousstrangers.race import Race
 
 # Setup and teardown using fixtures
 

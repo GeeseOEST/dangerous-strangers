@@ -9,16 +9,16 @@ class Background:
     def set_proficiencies(self, rules):    # Set the standard proficiences and + the number of selectable proficiencies for selection in the CharacterBuilder class
         ...
         
-    def set_languages():    # Set the standard languages and also + the number of selectable languages for selection in the CharacterBuilder class
+    def set_languages(self, rules):    # Set the standard languages and also + the number of selectable languages for selection in the CharacterBuilder class
         ...
     
-    def set_equipment():    # Sets the list of equipment provided by the background
+    def set_equipment(self, rules):    # Sets the list of equipment provided by the background
         ...
         
-    def set_money():    # Sets the amount of money the character holds based on the background
+    def set_money(self, rules):    # Sets the amount of money the character holds based on the background
         ...
         
-    def set_feature():  # Sets the feature list for the character
+    def set_features(self, rules):  # Sets the feature list for the character
         ...
     
     
