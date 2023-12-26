@@ -96,7 +96,7 @@
             "PP": { "type": "integer" }
           }
         },
-        "feature": {
+        "feats": {
           "type": "object",
           "additionalProperties": { "type": "string" }
         }
