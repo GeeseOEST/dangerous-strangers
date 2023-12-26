@@ -41,13 +41,14 @@ class Archetype:
             "skill": [0, []],
         }
         self.equipment = []
-        self.features = []
+        self.features = {}
         
         self.set_proficiencies(rules)
         self.set_equipment(rules)
+        self.set_features(rules)
 
     
-    def set_proficiencies(self, rules): # TODO - Work out logic for selecting randomly selectable proficiencies
+    def set_proficiencies(self, rules): 
 
         for key in self.proficiencies:
             if key in rules["proficiencies"]["standard"]:
@@ -59,8 +60,7 @@ class Archetype:
 
 
 
-    def set_equipment(self, rules): # TODO - Create logic for selecting equipment - SORT OF DONE BUT NEEDS CHECKING FOR SURE
-
+    def set_equipment(self, rules): 
         
         for choice in rules["equipment"]:
             if isinstance(choice[0], list):
@@ -70,12 +70,15 @@ class Archetype:
            
             
 
-    def set_features(self, rules): # TODO - Create logic for adding features appropriate to the level of the character
-        ...
+    def set_features(self, rules): 
 
+        
+        for level in range(self.level):
+            level_feats = rules["feats"][f'{level+1}']
+            for key in level_feats:
+                self.features[key] = level_feats[key]        
 
-
-    
+        
 """
 Components of Archetype:
     archetype type

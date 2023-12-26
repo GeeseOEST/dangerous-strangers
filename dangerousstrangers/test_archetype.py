@@ -102,12 +102,33 @@ class TestSetEquipment:  # Still missing a test to be 100% certain the random it
 
 
 class TestSetFeatures:
+    
+    def test_features_is_dict(self, archetype_resource):
+        assert isinstance(archetype_resource.features, dict), "self.features should be a dict"
+    
     def test_features_match_level_simple(self, archetype_resource):
         correct_number_of_feats = 0
-        for level in range(
-            archetype_resource.level + 1
-        ):  # Range is 0 indexed and therefore since 1st level feats are marked as 1, need to do that
-            correct_number_of_feats += len(archetype_resource.rules["feats"][level])
+        
+        for level in range(archetype_resource.level):
+            correct_number_of_feats += len(archetype_resource.rules["feats"][f'{level+1}'])
+            
         assert correct_number_of_feats == len(
             archetype_resource.features
         ), f"Archetype has {len(archetype_resource.features)} feats, should have {correct_number_of_feats}"
+        
+        
+    def test_features_complete(self, archetype_resource):
+        
+        # Check thorough resource.features that it includes the correct key and description
+        # Use key, check in .features, check == between value and key
+        
+        correct_feats = {}
+        for level in range(archetype_resource.level):
+            for key in archetype_resource.rules["feats"][f"{level+1}"]:
+                correct_feats[key] = archetype_resource.rules["feats"][f"{level+1}"][key]
+        
+        
+          
+        for key in archetype_resource.features:
+            assert archetype_resource.features[key] == correct_feats[key]
+        
