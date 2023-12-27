@@ -6,8 +6,8 @@
 class Character:
     def __init__(self):
         self.race = ""
-        self.background = ""
         self.archetype = ""
+        self.background = ""
         self.level = 0
         self.proficiency_bonus = 0
 

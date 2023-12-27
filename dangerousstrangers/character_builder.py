@@ -61,6 +61,7 @@ class CharacterBuilder:
         self.set_background(character_background)
         
         self.combine_ability_scores(character_race, scores)
+        self.combine_proficiencies(character_race, character_background, character_archetype)
 
 
     def set_race(self, race: Race):
@@ -95,10 +96,30 @@ class CharacterBuilder:
         for key in self.character.ability_scores:
             self.character.ability_scores[key] += race.ability_score_modifiers[key]
 
+
     def combine_proficiencies(
         self, race: Race, background: Background, archetype: Archetype
     ):
-        ...
+        for key in self.character.proficiencies:
+            self.character.proficiencies[key] += race.proficiencies[key]
+            self.character.proficiencies[key] += archetype.proficiencies[key]
+            self.character.proficiencies[key] += background.proficiencies[key]
+
+        self.selectable_proficiencies = {
+            "armor": [0, []],
+            "weapon": [0, []],
+            "tool": [0, []],
+            "save": [0, []],
+            "skill": [0, []],
+        }
+        
+        for key in self.character.proficiencies:
+            if archetype.selectable_proficiencies[key][0] != 0:
+                self.selectable_proficiencies[key] = archetype.selectable_proficiencies[key]
+            if background.selectable_proficiencies[key][0] != 0:
+                self.selectable_proficiencies[key][0] += background.selectable_proficiencies[key][0]
+                self.selectable_proficiencies[key][1] += background.selectable_proficiencies[key][1]
+
 
     def combine_equipment(
         self, race: Race, background: Background, archetype: Archetype
