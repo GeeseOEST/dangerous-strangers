@@ -72,6 +72,13 @@ class Character:
             "CHA": 0,
         }
         
-        self.languages = []
+        self.languages = ["fuck", "me", "bitte"]
         self.equipment = []
+        self.money ={
+            "CP": 0,
+            "SP": 0,
+            "EP": 0,
+            "GP": 0,
+            "PP": 0
+        }   
         self.features = []

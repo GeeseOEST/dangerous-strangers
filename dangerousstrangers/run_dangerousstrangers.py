@@ -13,8 +13,9 @@ def main():
     scores = roll_scores()
     characteristics = select_characteristics()
     
-    character_instance = CharacterBuilder(characteristics, scores)
+    character_instance = CharacterBuilder(characteristics, scores).build()
     
+    print (character_instance.languages)
     print (scores)
     print (characteristics)
 
