@@ -28,7 +28,7 @@ class Character:
             "WIS": 0,
             "CHA": 0,
         }
-        self.ability_score_modifiers = {
+        self.check_modifiers = {
             "STR": 0,
             "DEX": 0,
             "CON": 0,
