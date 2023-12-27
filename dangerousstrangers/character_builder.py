@@ -59,6 +59,8 @@ class CharacterBuilder:
         self.set_race(character_race)
         self.set_archetype(character_archetype)
         self.set_background(character_background)
+        
+        self.combine_ability_scores(character_race, scores)
 
 
     def set_race(self, race: Race):
@@ -79,7 +81,19 @@ class CharacterBuilder:
 
 
     def combine_ability_scores(self, race: Race, scores: list):
-        ...
+        
+        highest_score = max(scores)
+        self.character.ability_scores[self.core_stat] = highest_score
+        scores.remove(highest_score)
+        
+        for key in self.character.ability_scores:
+            if key != self.core_stat:
+                score = scores[0]
+                self.character.ability_scores[key] = score
+                scores.remove(score)
+            
+        for key in self.character.ability_scores:
+            self.character.ability_scores[key] += race.ability_score_modifiers[key]
 
     def combine_proficiencies(
         self, race: Race, background: Background, archetype: Archetype
