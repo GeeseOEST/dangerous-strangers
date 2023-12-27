@@ -1,5 +1,5 @@
 import pytest
-from dangerousstrangers.dangerousstrangers import (
+from dangerousstrangers.run_dangerousstrangers import (
     set_scores,
     roll_scores,
     select_characteristics,
