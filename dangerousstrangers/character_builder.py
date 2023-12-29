@@ -98,6 +98,26 @@ class CharacterBuilder:
             "Net",
         ],
     }
+    SKILL_INHERITANCE = {
+        "acrobatics": "DEX",
+        "animal handling": "WIS",
+        "arcana": "INT",
+        "athletics": "STR",
+        "deception": "CHA",
+        "history": "INT",
+        "insight": "WIS",
+        "intimidation": "CHA",
+        "investigation": "INT",
+        "medicine": "WIS",
+        "nature": "INT",
+        "perception": "WIS",
+        "performance": "CHA",
+        "persuasion": "CHA",
+        "religion": "INT",
+        "sleight of hand": "DEX",
+        "stealth": "DEX",
+        "survival": "WIS"
+    }
 
     def __init__(self, core_components: dict, scores: list) -> None:
         # Will need to have here things like selectable proficiencies, selectable languages etc, so that they are able to be used in the character creation process and just pulled in via self.
@@ -121,6 +141,7 @@ class CharacterBuilder:
         self.combine_attributes_and_features(character_race, character_background, character_archetype)
         
         self.calc_check_modifiers()
+        self.calc_proficiency_bonus()
 
     def set_race(self, race: Race):
         self.character.race = race.race
@@ -309,7 +330,12 @@ class CharacterBuilder:
                 self.character.proficiencies[key].append(random_proficiency)
 
     def calc_proficiency_bonus(self):
-        ...
+        for skill in self.character.skills:
+            attribute_controlling = self.SKILL_INHERITANCE[skill]
+            self.character.skills[skill] = self.character.check_modifiers[attribute_controlling]
+            if skill in self.character.proficiencies["skill"]:
+                    self.character.skills[skill] += self.PROFICIENCY_BONUSES[self.character.level]
+
 
     def calc_check_modifiers(self):
         for ability, score in self.character.ability_scores.items():
