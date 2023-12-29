@@ -2,7 +2,7 @@ from dangerousstrangers.background import Background
 from dangerousstrangers.archetype import Archetype
 from dangerousstrangers.race import Race
 from dangerousstrangers.character import Character
-
+import random
 
 class CharacterBuilder:
     LANGUAGES = [
@@ -120,6 +120,7 @@ class CharacterBuilder:
                 self.selectable_proficiencies[key][0] += background.selectable_proficiencies[key][0]
                 self.selectable_proficiencies[key][1] += background.selectable_proficiencies[key][1]
 
+        self.select_proficiencies()
 
     def combine_equipment(
         self, race: Race, background: Background, archetype: Archetype
@@ -137,7 +138,19 @@ class CharacterBuilder:
         ...
 
     def select_proficiencies(self):
-        ...
+        print (self.character.proficiencies)
+        for key in self.selectable_proficiencies:
+            # Overly verbose but it helps step through the stages as it selects how to do it.
+            number_choices = self.selectable_proficiencies[key][0]
+            choices = set(self.selectable_proficiencies[key][1])
+            current_proficiencies = set(self.character.proficiencies[key])
+            actual_choices = list(choices - current_proficiencies)
+
+            for _ in range(number_choices):
+                random_proficiency = random.choice(actual_choices)
+                self.character.proficiencies[key].append(random_proficiency)
+        
+        print (self.character.proficiencies)
 
     def select_langauges(self):
         ...
