@@ -4,20 +4,20 @@
     "core_stat": "STR",
     "proficiencies": {
       "standard": {
-        "armor": ["Light armor", "Medium armor", "Shields"],
-        "weapon": ["Simple weapons", "Martial weapons"],
-        "save": ["Strength", "Constitution"]
+        "armor": ["light armor", "medium armor", "shields"],
+        "weapon": ["simple weapons", "martial weapons"],
+        "save": ["strength", "constitution"]
       },
       "selectable": {
         "skill": [
           2,
           [
-            "Animal handling",
-            "Athletics",
-            "Intimidation",
-            "Nature",
-            "Perception",
-            "Survival"
+            "animal handling",
+            "athletics",
+            "intimidation",
+            "nature",
+            "perception",
+            "survival"
           ]
         ]
       }
@@ -50,14 +50,14 @@
     "core_stat": "DEX",
     "proficiencies": {
       "standard": {
-        "weapon": ["Simple weapons", "Shortswords"],
-        "save": ["Strength", "Dexterity"]
+        "weapon": ["simple weapons", "shortswords"],
+        "save": ["strength", "dexterity"]
       },
       "selectable": {
-        "tool": [1, ["Artisan's tools", "Musical instruments"]],
+        "tool": [1, ["artisan's tools", "musical instruments"]],
         "skill": [
           2,
-          ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]
+          ["acrobatics", "athletics", "history", "insight", "religion", "stealth"]
         ]
       }
     },
