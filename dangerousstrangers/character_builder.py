@@ -142,6 +142,7 @@ class CharacterBuilder:
         
         self.calc_check_modifiers()
         self.calc_proficiency_bonus()
+        self.calc_saves()
 
     def set_race(self, race: Race):
         self.character.race = race.race
@@ -336,7 +337,6 @@ class CharacterBuilder:
             if skill in self.character.proficiencies["skill"]:
                     self.character.skills[skill] += self.PROFICIENCY_BONUSES[self.character.level]
 
-
     def calc_check_modifiers(self):
         for ability, score in self.character.ability_scores.items():
             modifier = (score - 10)/2
@@ -346,6 +346,15 @@ class CharacterBuilder:
             
             modifier -= modifier%1
             self.character.check_modifiers[ability] = int(modifier)
+
+    def calc_saves(self):
+        for save in self.character.saves:
+            self.character.saves[save] = self.character.check_modifiers[save]
+            try:
+               if save in self.character.proficiencies["save"]:
+                    self.character.saves[save] += self.PROFICIENCY_BONUSES[self.character.level]                
+            except KeyError: 
+               pass
 
     def build(self):
         return self.character

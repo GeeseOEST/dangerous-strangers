@@ -6,7 +6,7 @@
       "standard": {
         "armor": ["light armor", "medium armor", "shields"],
         "weapon": ["simple weapons", "martial weapons"],
-        "save": ["strength", "constitution"]
+        "save": ["STR", "CON"]
       },
       "selectable": {
         "skill": [
@@ -51,7 +51,7 @@
     "proficiencies": {
       "standard": {
         "weapon": ["simple weapons", "shortswords"],
-        "save": ["strength", "dexterity"]
+        "save": ["STR", "DEX"]
       },
       "selectable": {
         "tool": [1, ["artisan's tools", "musical instruments"]],
