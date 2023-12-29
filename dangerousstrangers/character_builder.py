@@ -286,8 +286,8 @@ class CharacterBuilder:
         for key in self.ARMOR_TYPES:
             armor_options += self.ARMOR_TYPES[key]
         for item in self.character.equipment:
-            if item in armor_options:
-                self.character.armor = item
+            if item[0] in armor_options:
+                self.character.armor = item[0]
 
     def combine_languages(
         self, race: Race, background: Background, archetype: Archetype
@@ -336,6 +336,8 @@ class CharacterBuilder:
             self.character.skills[skill] = self.character.check_modifiers[attribute_controlling]
             if skill in self.character.proficiencies["skill"]:
                     self.character.skills[skill] += self.PROFICIENCY_BONUSES[self.character.level]
+                    
+        self.character.proficiency_bonus = self.PROFICIENCY_BONUSES[self.character.level]
 
     def calc_check_modifiers(self):
         for ability, score in self.character.ability_scores.items():
