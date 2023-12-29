@@ -119,6 +119,8 @@ class CharacterBuilder:
         self.combine_equipment(character_background, character_archetype)
         self.combine_languages(character_race, character_background, character_archetype)
         self.combine_attributes_and_features(character_race, character_background, character_archetype)
+        
+        self.calc_check_modifiers()
 
     def set_race(self, race: Race):
         self.character.race = race.race
@@ -286,15 +288,13 @@ class CharacterBuilder:
                 self.character.languages.append(random.choice(self.LANGUAGES))
         
         self.character.languages = set(self.character.languages)
-        print(self.character.languages)
+        
 
     def combine_attributes_and_features(
         self, race: Race, background: Background, archetype: Archetype
     ):
         self.character.features = race.attributes | background.features | archetype.features
-        
-        for key, value in self.character.features.items():
-            print (f"{key}: {value}")
+
 
     def select_proficiencies(self):
         for key in self.selectable_proficiencies:
@@ -312,7 +312,14 @@ class CharacterBuilder:
         ...
 
     def calc_check_modifiers(self):
-        ...
+        for ability, score in self.character.ability_scores.items():
+            modifier = (score - 10)/2
+            if modifier.is_integer():
+                self.character.check_modifiers[ability] = int(modifier)
+                continue
+            
+            modifier -= modifier%1
+            self.character.check_modifiers[ability] = int(modifier)
 
     def build(self):
         return self.character
