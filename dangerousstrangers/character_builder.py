@@ -118,7 +118,7 @@ class CharacterBuilder:
         )
         self.combine_equipment(character_background, character_archetype)
         self.combine_languages(character_race, character_background, character_archetype)
-
+        self.combine_attributes_and_features(character_race, character_background, character_archetype)
 
     def set_race(self, race: Race):
         self.character.race = race.race
@@ -238,8 +238,7 @@ class CharacterBuilder:
                 
         for item in removed_items:
             self.character.equipment.remove(item)
-            
-            
+                    
     def apply_weapon(self):
         
         weapon_options = self.WEAPON_TYPES         
@@ -257,8 +256,7 @@ class CharacterBuilder:
                 if item_name not in weapon_options[key]:
                     continue
                 self.character.weapons.append(item_name)
-        
-        
+            
     def apply_armor(self):
         armor_options = []
         for key in self.ARMOR_TYPES:
@@ -293,7 +291,10 @@ class CharacterBuilder:
     def combine_attributes_and_features(
         self, race: Race, background: Background, archetype: Archetype
     ):
-        ...
+        self.character.features = race.attributes | background.features | archetype.features
+        
+        for key, value in self.character.features.items():
+            print (f"{key}: {value}")
 
     def select_proficiencies(self):
         for key in self.selectable_proficiencies:
@@ -306,9 +307,6 @@ class CharacterBuilder:
             for _ in range(number_choices):
                 random_proficiency = random.choice(actual_choices)
                 self.character.proficiencies[key].append(random_proficiency)
-
-    def select_langauges(self):
-        ...
 
     def calc_proficiency_bonus(self):
         ...
