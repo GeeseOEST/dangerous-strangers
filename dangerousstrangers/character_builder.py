@@ -117,6 +117,8 @@ class CharacterBuilder:
             character_race, character_background, character_archetype
         )
         self.combine_equipment(character_background, character_archetype)
+        self.combine_languages(character_race, character_background, character_archetype)
+
 
     def set_race(self, race: Race):
         self.character.race = race.race
@@ -268,7 +270,25 @@ class CharacterBuilder:
     def combine_languages(
         self, race: Race, background: Background, archetype: Archetype
     ):
-        ...
+        try:
+            self.character.languages = background.languages + race.languages
+        except AttributeError:
+            pass
+        
+        self.language_choices = 0
+        
+        if race.language_choices != 0:
+            self.language_choices += race.language_choices
+            
+        if background.language_choices != 0:
+            self.language_choices += background.language_choices
+        
+        if self.language_choices != 0:
+            for _ in range(self.language_choices):
+                self.character.languages.append(random.choice(self.LANGUAGES))
+        
+        self.character.languages = set(self.character.languages)
+        print(self.character.languages)
 
     def combine_attributes_and_features(
         self, race: Race, background: Background, archetype: Archetype
