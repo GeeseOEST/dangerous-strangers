@@ -183,10 +183,11 @@ class CharacterBuilder:
         self.character.equipment += archetype.equipment
         self.character.equipment += background.equipment
 
+        self.generate_weapon()
         self.apply_weapon()
         self.apply_armor()
 
-    def apply_weapon(self):
+    def generate_weapon(self):
         weapon_options = self.WEAPON_TYPES
         
         removed_items = []
@@ -235,6 +236,24 @@ class CharacterBuilder:
                 
         for item in removed_items:
             self.character.equipment.remove(item)
+            
+            
+    def apply_weapon(self):
+        # This is some horific nesting below, but just want to get this done. Willing to accept the tech debt to meet deadline.
+        weapon_options = self.WEAPON_TYPES         
+        
+        for item in self.character.equipment:        
+            if isinstance(item, list):
+                item_name = ""
+                if item[0][-1] == "s":
+                    item_name = item[0][:-1]
+                else:
+                    item_name = item[0]
+                for key in weapon_options:
+                    if item_name in weapon_options[key]:
+                        self.character.weapons.append(item_name)
+            
+        
 
     def apply_armor(self):
         armor_options = []
