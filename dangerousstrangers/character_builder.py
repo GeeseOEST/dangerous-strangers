@@ -239,22 +239,24 @@ class CharacterBuilder:
             
             
     def apply_weapon(self):
-        # This is some horific nesting below, but just want to get this done. Willing to accept the tech debt to meet deadline.
+        
         weapon_options = self.WEAPON_TYPES         
         
         for item in self.character.equipment:        
-            if isinstance(item, list):
-                item_name = ""
-                if item[0][-1] == "s":
-                    item_name = item[0][:-1]
-                else:
-                    item_name = item[0]
-                for key in weapon_options:
-                    if item_name in weapon_options[key]:
-                        self.character.weapons.append(item_name)
-            
+            if not isinstance(item, list):
+                continue
         
-
+            item_name = ""
+            if item[0][-1] == "s":
+                item_name = item[0][:-1]
+            else:
+                item_name = item[0]
+            for key in weapon_options:
+                if item_name not in weapon_options[key]:
+                    continue
+                self.character.weapons.append(item_name)
+        
+        
     def apply_armor(self):
         armor_options = []
         for key in self.ARMOR_TYPES:
