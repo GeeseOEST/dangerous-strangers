@@ -18,7 +18,8 @@ def main():
     #print (character_instance.languages)
     #print (scores)
     #print (character_instance.ability_scores)
-    #print (character_instance.proficiencies)
+    print (character_instance.proficiencies)
+    print (character_instance.equipment)
     #print (characteristics)
 
 

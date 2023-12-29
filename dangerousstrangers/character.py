@@ -19,6 +19,7 @@ class Character:
         self.speed = 0
         self.hitdice = 0
         self.armor_class = 0 # Not yet used
+        self.armor = ""
 
         self.ability_scores = {
             "STR": 0,
@@ -74,6 +75,7 @@ class Character:
         
         self.languages = ["fuck", "me", "bitte"]
         self.equipment = []
+        self.weapons = []
         self.money ={
             "CP": 0,
             "SP": 0,
