@@ -1,5 +1,6 @@
 import random
 import dangerousstrangers.json_loader
+from dangerousstrangers.character_builder import CharacterBuilder
 #from archetype import Archetype
 
 """
@@ -12,10 +13,17 @@ def main():
     scores = roll_scores()
     characteristics = select_characteristics()
     
-    #character_archetype = Archetype(characteristics["archetype"])
+    character_instance = CharacterBuilder(characteristics, scores.copy()).build()
     
-    print (scores)
-    print (characteristics)
+    #print (character_instance.languages)
+    #print (scores)
+    print (character_instance.ability_scores)
+    print (character_instance.check_modifiers)
+    print (character_instance.saves)
+    #print (character_instance.proficiencies)
+    #print (character_instance.equipment)
+    #print (character_instance.weapons)
+    #print (characteristics)
 
 
 def select_characteristics() -> dict:

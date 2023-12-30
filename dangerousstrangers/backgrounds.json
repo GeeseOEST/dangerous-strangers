@@ -2,7 +2,7 @@
   "acolyte": {
     "proficiencies": {
       "standard": {
-        "skill": ["Insight", "Religion"]
+        "skill": ["insight", "religion"]
       }
     },
     "languages": {
@@ -31,11 +31,11 @@
   "criminal": {
     "proficiencies": {
       "standard": {
-        "tool": ["Thieves' Tools"],
-        "skill": ["Deception", "Stealth"]
+        "tool": ["thieves' tools"],
+        "skill": ["deception", "stealth"]
       },
       "selectable": {
-        "tool": [1, ["Dice set", "Playing card set"]]
+        "tool": [1, ["dice set", "playing card set"]]
       }
     },
     "languages": {

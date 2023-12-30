@@ -40,5 +40,112 @@
       "Fey Ancestry": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
       "Trance": "Elves don't need to sleep. Instead, they meditate deeply remaining semiconcious for 4 hours day. After resting this way, you gain the same benefit that a human does after resting for 8 hours."
     }
+  },
+  "dwarf": {
+    "ability_score_modifiers": {
+      "CON": 2
+    },
+    "age_range": [50, 350],
+    "size": "Medium",
+    "speed": 25,
+    "languages": {
+      "standard": ["Common", "Dwarvish"],
+      "selectable": 0
+    },
+    "proficiencies": {
+      "weapon": ["battleaxe", "handaxe", "light hammer", "warhammer"],
+      "tool": ["smith's tools", "brewer's tools", "mason's tools"]
+    },
+    "attributes": {
+      "Darkvision": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern colour in darkness, only shades of grey.",
+      "Dwarven Resilience": "You have advantage on saving throws against poison, and you have resistance against poison damage",
+      "Stonecunning": "Whenever making INT(History) checks relating to the origin of stonework, you are considered to be proficient in the skill and may add double your proficiency bonus to the check, in the place of your regular proficiency"
+    }
+  },
+  "halfling": {
+    "ability_score_modifiers": {
+      "DEX": 2
+    },
+    "age_range": [20, 250],
+    "size": "Small",
+    "speed": 25,
+    "languages": {
+      "standard": ["Common", "Halfling"],
+      "selectable": 0
+    },
+    "attributes": {
+      "Lucky": "When you roll a 1 on a d20 for an attack roll, ability check, or saving throw, you may reroll the die and must use the new roll",
+      "Brave": "You have advantage on saving throws against being frightened",
+      "Halfling Nimbleness": "You can move through the space of any creature that is of a size larger than yours"
+    }
+  },
+  "dragonborn": {
+    "ability_score_modifiers": {
+      "STR": 2,
+      "CHA": 1
+    },
+    "age_range": [15, 80],
+    "size": "Medium",
+    "speed": 30,
+    "languages": {
+      "standard": ["Common", "Draconic"],
+      "selectable": 0
+    },
+    "attributes": {
+      "Draconic Ancestry": "You have draconic ancestry. Cool",
+      "Breath Weapon": "You can use your action to exhale destructive energy thanks to your draconic heritage. Each creature in a 15ft cone must make a DC12 dexterity saving throw. A creature takes 2d6 fire damage on a failed save, and half as much on a successful save. You can do this once per rest",
+      "Damage Resistance": "You are resistant to fire damage"
+    }
+  },
+  "gnome": {
+    "ability_score_modifiers": {
+
+      "INT": 2
+    },
+    "age_range": [20, 500],
+    "size": "Small",
+    "speed": 25,
+    "languages": {
+      "standard": ["Common", "Gnomish"],
+      "selectable": 0
+    },
+    "proficiencies": {
+      "armor": [],
+      "weapon": [],
+      "tool": [],
+      "save": [],
+      "skill": []
+    },
+    "attributes": {
+      "Darkvision": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern colour in darkness, only shades of grey.",
+      "Gnome Cunning": "You have advantage on all INT, WIS, and CHA saving throws against magic"
+    }
+  },
+  "half-elf": {
+    "ability_score_modifiers": {
+      
+      "DEX": 1,
+      
+      "INT": 1,
+            "CHA": 2
+    },
+    "age_range": [20, 200],
+    "size": "Medium",
+    "speed": 30,
+    "languages": {
+      "standard": ["Common", "Elvish"],
+      "selectable": 1
+    },
+    "proficiencies": {
+      "armor": [],
+      "weapon": [],
+      "tool": [],
+      "save": [],
+      "skill": ["deception", "perception"]
+    },
+    "attributes": {
+      "Darkvision": "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern colour in darkness, only shades of grey.",
+      "Fey Ancestry": "You have advantage on saving throws against being charmed, and magic can't put you to sleep"
+    }
   }
 }
