@@ -78,5 +78,123 @@
         "Martial Arts": "Your pracitce of martial arts gives you mastery of combat styles which are unarmed or using Monk weapons (shortswords, or simple melee weapons that do not have the two handed or heavy property). You gain the following benefits while fighting in these styles AND not wearing armor or a shield.\n - You can use Dexterity instead of Strenght for the attack and damage rolls of your unarmed strikes and monk weapon attacks\n - You can roll a d4 in place of the normal damage of your attack\n When you attack with an unarmed strike or monk weapon on your turn, you can make one additional unarmed strike as a Bonus Action."
       }
     }
+  },
+  "fighter": {
+    "hitdice": 10,
+    "core_stat": "STR",
+    "proficiencies": {
+      "standard": {
+        "armor": ["all armor", "shields"],
+        "weapon": ["simple weapons", "martial weapons"],
+        "save": ["STR, CON"]
+      },
+      "selectable": {
+        "skill": [
+          2,
+          [
+            "acrobatics",
+            "animal handling",
+            "athletics",
+            "history",
+            "insight",
+            "intimidation",
+            "perception",
+            "survival"
+          ]
+        ]
+      }
+    },
+    "equipment": [
+      [
+        ["Chain mail", 1],
+        ["Leather armor", 1]
+      ],
+      [
+        ["Martial weapon", 1],
+        ["Martial weapon", 2]
+      ],
+      [
+        ["Light crossbow", 1],
+        ["Handaxe", 2],
+        ["Longbow", 1]
+      ],
+      ["Shield", 1],
+      [
+        ["Dungoneer's pack", 1],
+        ["Explorer's pack", 1]
+      ]
+    ],
+    "feats": {
+      "1": {
+        "Fighting Style": "You have adopted a particular style of fighting as your specialty. When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack role - so long as youar wielding a shield.",
+        "Second Wind": "You have a limited well of stamina you can draw on to protect yourself. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. You can do this once per rest"
+      },
+      "2": {
+        "Action Surge": "You can push yourself beyond your normal limits, for a moment. On your turn, you can take one additional action on top of your regular action and possible bonus action. You can do this once per rest"
+      }
+    }
+  },
+  "rogue": {
+    "hitdice": 8,
+    "core_stat": "DEX",
+    "proficiencies": {
+      "standard": {
+        "armor": ["light armor"],
+        "weapon": [
+          "simple weapons",
+          "hand crossbows",
+          "longswords",
+          "rapiers",
+          "shortswords"
+        ],
+        "tool": ["thieves' tools"],
+        "save": ["DEX", "INT"]
+      },
+      "selectable": {
+        "skill": [
+          6,
+          [
+            "acrobatics",
+            "athletics",
+            "deception",
+            "insight",
+            "intimidation",
+            "investigation",
+            "perception",
+            "performance",
+            "persuasion",
+            "sleight of hand",
+            "stealth"
+          ]
+        ]
+      }
+    },
+    "equipment": [
+      [
+        ["Rapier", 1],
+        ["Shortsword", 1]
+      ],
+      [
+        ["Shortbow", 1],
+        ["Shortsword", 1]
+      ],
+      [
+        ["Burglar's Pack", 1],
+        ["Dungoneer's Pack", 1],
+        ["Explorer's Pack", 1]
+      ],
+      ["Leather armor", 1],
+      ["Dagger", 2],
+      "Thieves' Tools"
+    ],
+    "feats": {
+      "1": {
+        "Sneak Attack": "You know how to strike subtly, and exploit a foe's distraction. Once per turn, you can deal 1d6 additional damage to one creature you hit with an attack, provided you have advantage on the attack roll. The attack must use a finesse or ranged weapon. \n You do not need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. \n The amount of extra damage increases as your rogue level increases",
+        "Thieves' Cant": "During your rogue training you learnt thieves' cant, a secret mix of dialect, jargon, and code, that allows you to hide messages in seemingly normal conversation. ONly another creature that knows thieves' cant can understand such messages. It takes four times longer to convey such a message than it would to state the same idea plainly"
+      },
+      "2": {
+        "Cunning Action": "Your quick thinking and agility allow you to move and act quickly. You can use your bonus action on each of your turns in combat to take the dash, disengage, or hide actions"
+      }
+    }
   }
 }

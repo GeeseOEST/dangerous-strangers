@@ -47,9 +47,9 @@ class CharacterBuilder:
         20: 6,
     }
     ARMOR_TYPES = {
-        "light": ["Padded", "Leather", "Studded Leather"],
-        "medium": ["Hide", "Chain Shirt", "Scale Mail", "Breastplate", "Half Plate"],
-        "heavy": ["Ring Mail", "Chain Mail", "Splint", "Plate"],
+        "light": ["Padded", "Leather", "Studded leather"],
+        "medium": ["Hide", "Chain shirt", "Scale mail", "Breastplate", "Half plate"],
+        "heavy": ["Ring mail", "Chain mail", "Splint", "Plate"],
     }
     WEAPON_TYPES = {
         "Simple Melee": [
