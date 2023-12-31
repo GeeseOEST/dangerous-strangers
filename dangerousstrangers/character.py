@@ -93,11 +93,13 @@ class Character:
         character_headline = self.print_prepare_headline()
         character_attributes = self.print_prepare_attributes()
         character_skill_proficiencies = self.print_prepare_skill_proficiencies()
+        character_feats = self.print_prepare_feat_titles()
+        character_equipment_list = self.print_prepare_equipment()
         
-        output_components = ["", "", character_headline, "", character_attributes, "", character_skill_proficiencies]
+        output_components = ["", "", character_headline, "", character_attributes, "", character_skill_proficiencies, "", character_feats, "", character_equipment_list]
         
         complete_output = "\n".join(output_components)
-        
+            
         return complete_output
         
         
@@ -132,8 +134,6 @@ class Character:
         return output_line
     
     def print_prepare_skill_proficiencies(self):
-        # go through proficiencies and for any that exist, grab their relevant score from the array
-        # do 3 per line, so 20 char per thing
         
         proficiencies_added = 0
         proficiencies_line = ""
@@ -147,3 +147,86 @@ class Character:
                 proficiencies_line += f"{prof_phrase:^20}\n"
 
         return proficiencies_line
+    
+    
+    def print_prepare_feat_titles(self):
+        feat_titles = ""
+        feats_added = 0
+        for feat in self.features:
+            if len(feat) > 19:
+                feat_titles += f"{f"{feat[:16]}...":^20}"
+            else:
+                feat_titles += f"{feat:^20}"
+            feats_added += 1
+            if feats_added%3 == 0 and feat != list(self.features)[-1]:
+                feat_titles += "\n"
+
+        return feat_titles    
+    
+    '''
+    BELOW IS FUNCTIONAL BUT NOT NECESSARY FOR NOW - COMMENTED OUT TO GET STUFF FINISHED
+    
+    def prepare_print_feat_full(self):
+        feat_lines = ""
+                   
+        for feat in self.features:
+            current_feat_description = ""
+            description = self.features[feat]
+            while len(description) > 79:
+                current_letter = 0
+                while current_letter < 79:
+                    if description[current_letter:current_letter+1] != "\n":
+                        current_letter += 1
+                        continue
+                    current_feat_description += description[:current_letter+1]
+                    description = description[current_letter+2:]
+                    current_letter = 0
+                
+                # current letter = 79 from here onwards
+                try: 
+                    while description[current_letter] != " ":
+                        current_letter += 1
+                except IndexError:
+                    pass
+                
+                current_feat_description += description[:current_letter] + "\n"
+                description = description[current_letter+1:]        
+            current_feat_description += description
+    '''
+                  
+    
+        
+    def print_prepare_equipment(self):
+        
+        # Some in list and some in text format
+        # Go through, if in list format, pull out for quantity and then item
+            # if item more than 1, add an s
+        # If not, then keep as is
+        #Display as item per line
+        
+        ordered_list = []
+        
+        for item in self.equipment:
+            if isinstance(item, list):
+                ordered_list.append(item)
+        
+        for item in self.equipment:
+            if isinstance(item, list) == False:
+                ordered_list.append(item)
+        
+        equipment_line = f"{"":5}Equipment:\n"
+        
+        for item in ordered_list:
+            piece_info = ""
+            if isinstance(item, list):
+                if item[1] > 1 and item[0] != "Darts":
+                    piece_info = f"{item[1]} {item[0].capitalize()}s" # Hacky pluralisation
+                else:
+                    piece_info = f"{item[1]} {item[0].capitalize()}"
+            else:
+                piece_info = f"{item}"
+        
+            equipment_line += f"{"":10}{piece_info}\n"
+        
+        return equipment_line
+        
