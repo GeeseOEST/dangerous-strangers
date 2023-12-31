@@ -91,12 +91,13 @@ class Character:
         
              
         character_headline = self.print_prepare_headline()
+        character_facts = self.print_prepare_facts()
         character_attributes = self.print_prepare_attributes()
         character_skill_proficiencies = self.print_prepare_skill_proficiencies()
         character_feats = self.print_prepare_feat_titles()
         character_equipment_list = self.print_prepare_equipment()
         
-        output_components = ["", "", character_headline, "", character_attributes, "", character_skill_proficiencies, "", character_feats, "", character_equipment_list]
+        output_components = ["", "", character_headline, "", character_facts, "", character_attributes, "", character_skill_proficiencies, "", character_feats, "", character_equipment_list]
         
         complete_output = "\n".join(output_components)
             
@@ -111,10 +112,15 @@ class Character:
         '''
         
         name_line = f"{self.name["first"] + ' ' + self.name["last"]:^60}" #60
-        core_line = f"{self.race.capitalize():>19} {self.archetype.capitalize():^20} {f"{self.background.capitalize()} {self.level}":<20}" # 60
+        core_line = f"{self.race.capitalize():>19} {f"{self.archetype.capitalize()} {self.level}":^20} {self.background.capitalize():<19} " # 60
         header_line = name_line + "\n" + core_line
         
         return header_line
+    
+    
+    def print_prepare_facts(self):
+        fact_line = f"{f"Age: {self.age}":>19} {f"Speed: {self.speed}":^20} {f"Size: {self.size}":<19}"
+        return fact_line        
     
     
     def print_prepare_attributes(self):
@@ -140,12 +146,12 @@ class Character:
         
         for skill in self.proficiencies["skill"]:
             prof_phrase = f"{skill.capitalize()} {self.skills[skill]:+}"
+            proficiencies_line += f"{prof_phrase:^20}"
             proficiencies_added += 1
-            if proficiencies_added%3 != 0:
-                proficiencies_line += f"{prof_phrase:^20}"
-            else:
-                proficiencies_line += f"{prof_phrase:^20}\n"
-
+            
+            if proficiencies_added%3 == 0  and skill != self.proficiencies["skill"][-1]:
+                proficiencies_line += "\n"
+                
         return proficiencies_line
     
     

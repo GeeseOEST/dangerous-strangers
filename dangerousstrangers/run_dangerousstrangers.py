@@ -14,6 +14,8 @@ def main():
     characteristics = select_characteristics()
     
     character_instance = CharacterBuilder(characteristics, scores.copy()).build()
+    
+    print(character_instance)
 
 
 
