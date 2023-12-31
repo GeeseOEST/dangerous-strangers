@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "dangerousstrangers"
+version = "0.1.0"
+description = "A D&D NPC Builder for 5th Edition"
+authors = ["GeeseOEST <122099226+GeeseOEST@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
