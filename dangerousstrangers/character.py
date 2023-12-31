@@ -89,10 +89,16 @@ class Character:
         # Combine elements
         # Return STR that has those elements combined
         
-        character_printout = ""
-        
+             
         character_headline = self.print_prepare_headline()
         character_attributes = self.print_prepare_attributes()
+        
+        output_components = [character_headline, character_attributes, ""]
+        
+        complete_output = "\n".join(output_components)
+        
+        return complete_output
+        
         
     def print_prepare_headline(self):
         '''
@@ -102,15 +108,15 @@ class Character:
         '''
         
         name_line = f"{self.name["first"] + ' ' + self.name["last"]:^60}" #60
-        core_line = f"{self.race.capitalize():>19} {self.archetype.capitalize():^20} {self.background.capitalize():<19}" # 60
-        header = name_line + "\n" + core_line
-        print (header)
-        return header
+        core_line = f"{self.race.capitalize():>19} {self.archetype.capitalize():^20} {f"{self.background.capitalize()} {self.level}":<20}" # 60
+        header_line = name_line + "\n" + core_line
+        
+        return header_line
     
     
     def print_prepare_attributes(self):
         title_line = "" # Ends up 6 x 10 long == 60
-        output_line = "" # Ends up 6 x 10 long == 60
+        score_line = "" # Ends up 6 x 10 long == 60
         
         for key in self.ability_scores:
             title = f"{key:^10}"
@@ -118,6 +124,8 @@ class Character:
             ability_score = f"({self.ability_scores[key]})"
             content = f"{f"{check_modifier} {ability_score}":^10}"
             title_line += title
-            output_line += content
-           
+            score_line += content
         
+        output_line = title_line + "\n" + score_line
+        
+        return output_line
