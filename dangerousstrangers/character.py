@@ -92,8 +92,9 @@ class Character:
              
         character_headline = self.print_prepare_headline()
         character_attributes = self.print_prepare_attributes()
+        character_skill_proficiencies = self.print_prepare_skill_proficiencies()
         
-        output_components = [character_headline, character_attributes, ""]
+        output_components = ["", "", character_headline, "", character_attributes, "", character_skill_proficiencies]
         
         complete_output = "\n".join(output_components)
         
@@ -129,3 +130,20 @@ class Character:
         output_line = title_line + "\n" + score_line
         
         return output_line
+    
+    def print_prepare_skill_proficiencies(self):
+        # go through proficiencies and for any that exist, grab their relevant score from the array
+        # do 3 per line, so 20 char per thing
+        
+        proficiencies_added = 0
+        proficiencies_line = ""
+        
+        for skill in self.proficiencies["skill"]:
+            prof_phrase = f"{skill.capitalize()} {self.skills[skill]:+}"
+            proficiencies_added += 1
+            if proficiencies_added%3 != 0:
+                proficiencies_line += f"{prof_phrase:^20}"
+            else:
+                proficiencies_line += f"{prof_phrase:^20}\n"
+
+        return proficiencies_line
