@@ -84,3 +84,40 @@ class Character:
             "PP": 0
         }   
         self.features = []
+        
+    def __str__(self):
+        # Combine elements
+        # Return STR that has those elements combined
+        
+        character_printout = ""
+        
+        character_headline = self.print_prepare_headline()
+        character_attributes = self.print_prepare_attributes()
+        
+    def print_prepare_headline(self):
+        '''
+        Should be:
+            FIRST NAME  LAST NAME
+        RACE    ARCHETYPE   BACKGROUND
+        '''
+        
+        name_line = f"{self.name["first"] + ' ' + self.name["last"]:^60}" #60
+        core_line = f"{self.race.capitalize():>19} {self.archetype.capitalize():^20} {self.background.capitalize():<19}" # 60
+        header = name_line + "\n" + core_line
+        print (header)
+        return header
+    
+    
+    def print_prepare_attributes(self):
+        title_line = "" # Ends up 6 x 10 long == 60
+        output_line = "" # Ends up 6 x 10 long == 60
+        
+        for key in self.ability_scores:
+            title = f"{key:^10}"
+            check_modifier = f"{self.check_modifiers[key]:+}"
+            ability_score = f"({self.ability_scores[key]})"
+            content = f"{f"{check_modifier} {ability_score}":^10}"
+            title_line += title
+            output_line += content
+           
+        
