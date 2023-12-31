@@ -15,15 +15,8 @@ def main():
     
     character_instance = CharacterBuilder(characteristics, scores.copy()).build()
     
-    #print (character_instance.languages)
-    #print (scores)
-    print (character_instance.ability_scores)
-    print (character_instance.check_modifiers)
-    print (character_instance.saves)
-    #print (character_instance.proficiencies)
-    #print (character_instance.equipment)
-    #print (character_instance.weapons)
-    #print (characteristics)
+    print(character_instance)
+
 
 
 def select_characteristics() -> dict:

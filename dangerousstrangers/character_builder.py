@@ -327,8 +327,10 @@ class CharacterBuilder:
             actual_choices = list(choices - current_proficiencies)
 
             for _ in range(number_choices):
-                random_proficiency = random.choice(actual_choices)
-                self.character.proficiencies[key].append(random_proficiency)
+                while len(actual_choices) > 0:
+                    random_proficiency = random.choice(actual_choices)
+                    self.character.proficiencies[key].append(random_proficiency)
+                    actual_choices.remove(random_proficiency)
 
     def calc_proficiency_bonus(self):
         for skill in self.character.skills:
